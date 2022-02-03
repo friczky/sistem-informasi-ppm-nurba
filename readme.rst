@@ -20,8 +20,8 @@ Fitur-Fitur
 Server Requirements
 *******************
 
-PHP : 7.4
-DBMS : MYSQL
+- PHP : 7.4
+- DBMS : MYSQL
 
 ************
 Installation
