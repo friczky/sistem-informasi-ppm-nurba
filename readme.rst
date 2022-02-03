@@ -29,9 +29,9 @@ Installation
 
 1. Clone atau Download Source Code aplikasi ini terlebih dahulu.
 2. Ekstrak apabila mendownload file zip.
-3. Import Database menggunakan phpmyadmin.(Nama filenya database.sql)
-3. Buka Halaman Login (folder_aplikasi/login)
-4. Masukan Username dan password (admin/admin)
+3. Import Database menggunakan phpmyadmin.(Nama filenya database.sql).
+3. Buka Halaman Login (folder_aplikasi/login).
+4. Masukan Username dan password (admin/admin).
 
 *******
 License
