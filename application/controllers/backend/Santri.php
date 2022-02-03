@@ -48,10 +48,9 @@ class Santri extends CI_Controller {
         redirect(base_url('dashboard/santri'));
     }
 
-	public function edit($id_Santri){
+	public function edit($id_santri){
 		$data['title'] = 'Edit Santri';
-		$data['kategori'] = $this->db->get('tb_kategori')->result();
-		$data['Santri'] = $this->db->where('id_Santri',$id_Santri)->from('tb_Santri')->join('tb_kategori','tb_kategori.id_kategori = tb_Santri.id_kategori')->get()->row_array();
+		$data['santri'] = $this->db->get('tb_santri')->row_array();
 		$this->load->view('backend/santri/edit',$data);
 	}
 
@@ -70,18 +69,16 @@ class Santri extends CI_Controller {
         } else {
             $this->upload->display_errors();
         }
-         $judul     = $this->input->post('judul');
-		 $string    = url_title($judul, 'dash', true);                                                     
-		 $trim      = trim($string); 
-		 $pre_slug  = strtolower(str_replace(" ", "-", $trim)); 
-		 $slug       =$pre_slug.'.html'; 
-
         $data = [
-            'judul'			=> $this->input->post('judul'),
-            'slug'			=> $slug,
-            'id_kategori'	=> $this->input->post('id_kategori'),
-            'konten'		=> $this->input->post('konten'),
-            'waktu_update'   => date('Y-m-d H:i:s')
+			'nama'			=> $this->input->post('nama'),
+			'nama_wali'		=> $this->input->post('nama_wali'),
+			'telpon_wali'	=> $this->input->post('telpon_wali'),
+            'telpon'		=> $this->input->post('telpon'),
+            'tempat_lahir'	=> $this->input->post('tempat_lahir'),
+            'tanggal_lahir'	=> $this->input->post('tanggal_lahir'),
+			'kampus'		=> $this->input->post('kampus'),
+			'angkatan'		=> $this->input->post('angkatan'),
+            'waktu_update'	=> date('Y-m-d H:i:s')
         ];
         $this->db->update('tb_santri',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Santri !</div>');
