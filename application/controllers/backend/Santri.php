@@ -50,7 +50,7 @@ class Santri extends CI_Controller {
 
 	public function edit($id_santri){
 		$data['title'] = 'Edit Santri';
-		$data['santri'] = $this->db->get('tb_santri')->row_array();
+		$data['santri'] = $this->db->where('id_santri',$id_santri)->get('tb_santri')->row_array();
 		$this->load->view('backend/santri/edit',$data);
 	}
 

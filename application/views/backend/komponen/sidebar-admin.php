@@ -104,7 +104,7 @@
               <p>
                 Man Ustadz
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-primary right">6</span>
+                <span class="badge badge-primary right"><?= $this->db->count_all('tb_ustadz')?></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
