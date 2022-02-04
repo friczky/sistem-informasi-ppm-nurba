@@ -38,7 +38,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-					<th>No.</th>
+									<th>No.</th>
                     <th>Nama</th>
                     <th>Ustadz</th>
                     <th>Hari</th>
@@ -48,20 +48,21 @@ $this->load->view('backend/komponen/sidebar-admin');
                   </tr>
                   </thead>
                   <tbody>
+									<?php $no=1; foreach($kajian as $k):?>
                   <tr>
-					<td>1.</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-										<td>Online</td>
-										<td>Online</td>
+										<td><?= $no++?>.</td>
+                    <td><?= $k->nama_kajian?></td>
+                    <td><?= $k->nama?></td>
+                    <td><?= $k->hari?></td>
+										<td><?= $k->jam?></td>
+										<td><?= $k->pelaksanaan?></td>
                     <td>
-						<a href="<?= base_url()?>dashboard/kajian/edit/1" class="btn btn-primary">Edit</a>
-						<a href="<?= base_url()?>dashboard/kajian/hapus/1" class="btn btn-danger">Hapus</a>
-					</td>
+										<a href="<?= base_url()?>dashboard/kajian/edit/<?= $k->id_kajian?>" class="btn btn-primary">Edit</a>
+										<a href="<?= base_url()?>dashboard/kajian/hapus/1" class="btn btn-danger">Hapus</a>
+									</td>
                   </tr>
+
+									<?php endforeach;?>
                   </tbody>
                 </table>
               </div>

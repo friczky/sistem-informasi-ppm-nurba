@@ -63,13 +63,14 @@ class Ustadz extends CI_Controller {
         } else {
             $this->upload->display_errors();
         }
+		$id_ustadz = $this->input->post('id_ustadz');
         $data = [
 			'nama'			=> $this->input->post('nama'),
 			'telpon'		=> $this->input->post('telpon'),
 			'alamat'		=> $this->input->post('alamat'),
             'waktu_update'	=> date('Y-m-d H:i:s')
         ];
-        $this->db->update('tb_ustadz',$data);
+        $this->db->where('id_ustadz',$id_ustadz)->update('tb_ustadz',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Ustadz !</div>');
         redirect(base_url('dashboard/ustadz'));
     }

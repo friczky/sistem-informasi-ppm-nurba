@@ -15,14 +15,14 @@ $this->load->view('backend/komponen/sidebar-admin');
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Data Ustadz</h1>
+                    <h1>Edit Data Ustadz</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
                             <a href="<?= base_url()?>dashboard/berita">Ustadz</a>
                         </li>
-                        <li class="breadcrumb-item active">Tambah Data Ustadz</li>
+                        <li class="breadcrumb-item active">Edit Data Ustadz</li>
                     </ol>
                 </div>
             </div>
@@ -36,7 +36,7 @@ $this->load->view('backend/komponen/sidebar-admin');
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Form Tambah Ustadz</h3>
+                    <h3 class="card-title">Form Edit Ustadz</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -91,17 +91,18 @@ $this->load->view('backend/komponen/sidebar-admin');
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input type="file" class="form-control" name="foto" id="" >
-																<input type="hidden" name="foto_old" value="<?= $ustadz['nama']?>">
+                                <input type="file" class="form-control" name="foto" id="">
+                                <input type="hidden" name="foto_old" value="<?= $ustadz['nama']?>">
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
+						<input type="hidden" name="id_ustadz" value="<?= $ustadz['id_ustadz']?>">
                         <input type="submit" class="btn btn-primary" value="Simpan">
                     </div>
                 </div>
-								<?php form_close()?>
+                <?php form_close()?>
                 <!-- /.card-body -->
                 <div class="card-footer"></div>
             </div>

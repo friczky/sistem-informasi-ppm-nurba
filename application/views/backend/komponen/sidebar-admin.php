@@ -128,7 +128,7 @@
               <p>
                 Man Kajian
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-primary right">6</span>
+                <span class="badge badge-primary right"><?= $this->db->count_all('tb_kajian')?></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -142,12 +142,6 @@
                 <a href="<?= base_url()?>dashboard/kajian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Kajian</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url()?>dashboard/kajian/kategori" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kategori</p>
                 </a>
               </li>
             </ul>
