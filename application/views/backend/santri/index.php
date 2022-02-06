@@ -38,7 +38,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-								<?= $this->session->flashdata('sukses')?>
+                    <?= $this->session->flashdata('sukses')?>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>

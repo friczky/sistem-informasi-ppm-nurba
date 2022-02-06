@@ -15,12 +15,12 @@ $this->load->view('backend/komponen/sidebar-admin');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Berita</h1>
+            <h1>Kategori</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= base_url()?>dashboard/berita">Berita</a></li>
-              <li class="breadcrumb-item active">Edit Berita</li>
+              <li class="breadcrumb-item active">Kategori</li>
             </ol>
           </div>
         </div>
@@ -33,7 +33,7 @@ $this->load->view('backend/komponen/sidebar-admin');
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Form Edit Berita</h3>
+            <h3 class="card-title">Form Kategori</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -44,53 +44,52 @@ $this->load->view('backend/komponen/sidebar-admin');
               </button>
             </div>
           </div>
+		  <form action="<?= base_url()?>backend/berita/tambah" method="post">
           <!-- /.card-header -->
-					<?= form_open_multipart('backend/berita/update')?>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label>Judul</label>
-                  <input type="text" class="form-control" name="judul" placeholder="Masukan Judul Berita" value="<?= $berita['judul']?>" required>
+                  <input type="text" class="form-control" name="judul" placeholder="Masukan Judul Berita" required>
+				  <br>
+				  <label>Keterangan</label>
+                  <input type="text" class="form-control" name="keterangan" placeholder="Masukan Keterangan" required>
+				  <br>
+				  <input type="submit" class="btn btn-primary" value="Simpan">
                 </div>
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->
-              <div class="col-md-6">
+              <div class="col-md-9">
                 <div class="form-group">
-                  <label>Kategori</label>
-                  <select class="form-control" name="id_kategori" required>
-                    <option value="<?= $berita['id_kategori']?>"><?= $berita['kategori']?> (Kategori Sebelumnya)</option>
-										<?php foreach ($kategori as $k) { ?>
-                    <option value="<?= $k->id_kategori?>"><?= $k->kategori?></option>
-										<?php } ?>
-                  </select>
+                  <label>Data Kategori</label>
+                  <table id="example1" class="table table-bordered table-striped">
+					  <thead>
+					  <th>No.</th>
+					  <th>Kategori</th>
+					  <th>Keterangan</th>
+					  <th>Aksi</th>
+					  </thead>
+					  <tr>
+						  <td>1.</td>
+						  <td>Test</td>
+						  <td>Ini keterangan</td>
+						  <td>
+						  <a href="<?= base_url()?>dashboard/berita/edit/1" class="btn btn-primary">Edit</a>
+						  <a href="<?= base_url()?>dashboard/berita/hapus/1" class="btn btn-danger">Hapus</a>
+						  </td>
+					  </tr>
+				  </table>
                 </div>
               </div>   
             </div>
-			<!-- /.col -->
-					<div class="form-group">
-						<label for="">Thumbnail</label>
-						<input type="file" class="form-control" name="foto" >
-						<input type="hidden" name="foto_old" value="<?= $berita['foto']?>">
-					</div>
-
-					<div class="form-group">
-						<label for="">Isi Konten</label>
-						<textarea name="konten" class="form-control" id="summernote" cols="30" rows="10" required><?= $berita['konten']?></textarea>
-						<input type="hidden" name="id_berita" value="<?= $berita['id_berita']?>">
-					</div>
-
-					<div class="form-group">
-						<input type="hidden" name="id_berita" value="<?= $berita['id_berita']?>">
-						<input type="submit" class="btn btn-primary" value="Simpan">
-					</div>
           </div>
+		  </form>
           <!-- /.card-body -->
           <div class="card-footer">
           </div>
         </div>
-				</form>
         <!-- /.card -->
 	  </div>
 	</section>

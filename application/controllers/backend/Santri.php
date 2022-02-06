@@ -30,7 +30,7 @@ class Santri extends CI_Controller {
         } else {
             $this->upload->display_errors();
         }
-
+		$id_santri = $this->input->post('id_santri');
         $data = [
             'nama'			=> $this->input->post('nama'),
 			'nama_wali'		=> $this->input->post('nama_wali'),
@@ -43,7 +43,7 @@ class Santri extends CI_Controller {
             'foto'          => $foto,
             'waktu_buat'      => date('Y-m-d H:i:s')
         ];
-        $this->db->insert('tb_santri',$data);
+        $this->db->where('id_santri',$id_santri)->insert('tb_santri',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil menambahkan Santri !</div>');
         redirect(base_url('dashboard/santri'));
     }
@@ -86,12 +86,12 @@ class Santri extends CI_Controller {
     }
 
 
-	public function hapus($id_Santri){
-		$data = $this->db->where('id_santri',$id_Santri)->get('tb_Santri');
+	public function hapus($id_santri){
+		$data = $this->db->where('id_santri',$id_santri)->get('tb_santri');
         foreach ($data->result() as $u){
             unlink('uploads/santri/'.$u->foto);
         } 
-        $this->db->where('id_Santri',$id_Santri)->delete('tb_santri');
+        $this->db->where('id_Santri',$id_santri)->delete('tb_santri');
         $this->session->set_flashdata('sukses','<div class="alert alert-danger"> Berhasil Menghapus Santri !</div>');
         redirect(base_url('dashboard/santri'));
 	}

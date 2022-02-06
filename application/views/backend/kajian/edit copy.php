@@ -33,7 +33,7 @@ $this->load->view('backend/komponen/sidebar-admin');
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Form Edit Berita</h3>
+            <h3 class="card-title">Edit Berita : </h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -45,13 +45,12 @@ $this->load->view('backend/komponen/sidebar-admin');
             </div>
           </div>
           <!-- /.card-header -->
-					<?= form_open_multipart('backend/berita/update')?>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Judul</label>
-                  <input type="text" class="form-control" name="judul" placeholder="Masukan Judul Berita" value="<?= $berita['judul']?>" required>
+                  <input type="text" class="form-control" name="judul" placeholder="Masukan Judul Berita" required>
                 </div>
                 <!-- /.form-group -->
               </div>
@@ -59,38 +58,37 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Kategori</label>
-                  <select class="form-control" name="id_kategori" required>
-                    <option value="<?= $berita['id_kategori']?>"><?= $berita['kategori']?> (Kategori Sebelumnya)</option>
-										<?php foreach ($kategori as $k) { ?>
-                    <option value="<?= $k->id_kategori?>"><?= $k->kategori?></option>
-										<?php } ?>
+                  <select class="form-control" name="kategori" required>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
                   </select>
                 </div>
               </div>   
             </div>
 			<!-- /.col -->
-					<div class="form-group">
-						<label for="">Thumbnail</label>
-						<input type="file" class="form-control" name="foto" >
-						<input type="hidden" name="foto_old" value="<?= $berita['foto']?>">
-					</div>
+			<div class="form-group">
+				<label for="">Thumbnail</label>
+				<input type="file" class="form-control" name="">
+			</div>
 
-					<div class="form-group">
-						<label for="">Isi Konten</label>
-						<textarea name="konten" class="form-control" id="summernote" cols="30" rows="10" required><?= $berita['konten']?></textarea>
-						<input type="hidden" name="id_berita" value="<?= $berita['id_berita']?>">
-					</div>
+			<div class="form-group">
+				<label for="">Isi Konten</label>
+				<textarea name="" class="form-control" id="summernote" cols="30" rows="10"></textarea>
+			</div>
 
-					<div class="form-group">
-						<input type="hidden" name="id_berita" value="<?= $berita['id_berita']?>">
-						<input type="submit" class="btn btn-primary" value="Simpan">
-					</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-primary" value="Simpan">
+			</div>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
           </div>
         </div>
-				</form>
         <!-- /.card -->
 	  </div>
 	</section>

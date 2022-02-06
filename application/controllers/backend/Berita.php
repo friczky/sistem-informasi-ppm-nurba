@@ -77,7 +77,7 @@ class Berita extends CI_Controller {
 		 $trim      = trim($string); 
 		 $pre_slug  = strtolower(str_replace(" ", "-", $trim)); 
 		 $slug       =$pre_slug.'.html'; 
-
+		$id_berita = $this->input->post('id_berita');
         $data = [
             'judul'			=> $this->input->post('judul'),
             'slug'			=> $slug,
@@ -85,7 +85,7 @@ class Berita extends CI_Controller {
             'konten'		=> $this->input->post('konten'),
             'waktu_update'   => date('Y-m-d H:i:s')
         ];
-        $this->db->update('tb_berita',$data);
+        $this->db->where('id_berita',$id_berita)->update('tb_berita',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui berita !</div>');
         redirect(base_url('dashboard/berita'));
     }

@@ -63,6 +63,19 @@ $this->load->view('backend/komponen/sidebar-admin');
                     </div>
                   </div>
                 </form>
+
+								<table class="table" border="1">
+									<th>Nama</th>
+									<th>File</th>
+									<tr>
+										<td>Poster</td>
+										<td>Lihat</td>
+									</tr>
+									<tr>
+										<td>File Pendaftaran</td>
+										<td>Lihat</td>
+									</tr>
+								</table>
             </div>
     </div>
 	  </div>
