@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] 			= 'welcome';
 // frontend
 $route['home']							= 'frontend/home';
-
+$route['admin']							= 'backend/dashboard';
 $route['dashboard']						= 'backend/dashboard';
 
 // berita

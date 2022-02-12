@@ -31,6 +31,7 @@ $this->load->view('backend/komponen/sidebar-admin');
     <section class="content">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
+				<?= form_open_multipart('backend/pengguna/update')?>
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title">Form Tambah Pengguna</h3>
@@ -50,7 +51,7 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Nama</label>
-                  <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Pengguna" required>
+                  <input type="text" class="form-control" name="nama" value="<?= $pengguna['nama']?>" required>
                 </div>
                 <!-- /.form-group -->
               </div>
@@ -58,7 +59,7 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" class="form-control" name="username" placeholder="Masukan Username">
+                  <input type="text" class="form-control" name="username" value="<?= $pengguna['username']?>" required>
                 </div>
               </div>   
             </div>
@@ -66,7 +67,7 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="text" class="form-control" name="email" placeholder="Masukan Email Pengguna" required>
+                  <input type="text" class="form-control" name="email" value="<?= $pengguna['email']?>" required re>
                 </div>
                 <!-- /.form-group -->
               </div>
@@ -74,7 +75,7 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control" name="username" placeholder="Masukan Password">
+                  <input type="password" class="form-control" name="username" value="<?= $pengguna["password"]?>" required>
                 </div>
               </div>   
             </div>
@@ -83,9 +84,11 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Role</label>
-                  <select name="role" id="" class="form-control">
-										<option value="">Masuk</option>
-									</select>
+                  <select name="role" id="" class="form-control" required>
+										<option value="<?= $pengguna['role']?>"><?= $role ?> (Saat Ini)</option>
+										<option value="0">Administrator</option>
+										<option value="1">Santri</option>
+									</select>	
                 </div>
                 <!-- /.form-group -->
               </div>
@@ -94,6 +97,8 @@ $this->load->view('backend/komponen/sidebar-admin');
                 <div class="form-group">
                   <label>Foto</label>
                   <input type="file" class="form-control" name="foto">
+									<input type="hidden" name="foto_old" value="<?= $pengguna['foto']?>">
+									<input type="hidden" name="id_pengguna" value="<?= $pengguna['nama']?>">
                 </div>
               </div>   
             </div>

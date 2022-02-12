@@ -3,43 +3,93 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengguna extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper(array('form', 'url'));
+	}
 	public function index()
 	{
-		$data['title'] = 'Data Pengguna';
+		
+		$data['title'] 		= 'Data Pengguna';
+		$data['pengguna'] 	= $this->db->order_by('id_pengguna','desc')->get('tb_pengguna')->result(); 
+		$data['role'] 		= '<?php if($pengguna["role"]== 0) { echo "Administrator";}else{echo "Santri";}?>';
 		$this->load->view('backend/pengguna/index',$data);
 	}
 
 	public function tambah(){
 		$data['title'] = 'Tambah Pengguna';
 		$this->load->view('backend/pengguna/tambah',$data);
-	}
+	} 
 
-	public function role(){
-		$data['title'] = 'Role Pengguna';
-		$this->load->view('backend/pengguna/role',$data);
-	}
+	public function store(){
+        $config['allowed_types'] = 'jpg|png|gif';
+        $config['max_size'] = '0';
+        $config['upload_path'] = './uploads/pengguna/';
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('foto')) {
+            $foto = $this->upload->data('file_name');
+        } else {
+            $this->upload->display_errors();
+        }
+        $data = [
+            'nama'			=> $this->input->post('nama'),
+			'username'		=> $this->input->post('username'),
+			'email'			=> $this->input->post('email'),
+			'password'		=> $this->input->post('password'),
+			'role'			=> $this->input->post('role'),
+            'foto'          => $foto,
+            'waktu_buat'    => date('Y-m-d H:i:s')
+        ];
+        $this->db->insert('tb_pengguna',$data);
+        $this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil menambahkan Pengguna !</div>');
+        redirect(base_url('dashboard/pengguna'));
+    }
 
-	public function edit(){
+	public function edit($id_pengguna){
 		$data['title'] = 'Edit Pengguna';
+		$data['pengguna'] = $this->db->where('id_pengguna',$id_pengguna)->get('tb_pengguna')->row_array();
+		$data['role'] 		= '<?php if($pengguna["role"]== 0) { echo "Administrator";}else{echo "Santri";}?>';
 		$this->load->view('backend/pengguna/edit',$data);
 	}
 
-	public function hapus(){
-		$this->load->view('backend/pengguna/edit');
+	public function update(){
+        $config['allowed_types'] = 'jpg|png|gif';
+        $config['max_size'] = '0';
+        $config['upload_path'] = './uploads/pengguna/';
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('foto')) {
+			$fotolama = $this->input->post('foto_old');
+            if ($fotolama != 'default.jpg') {
+                unlink(FCPATH . './uploads/pengguna/' . $fotolama);
+            }
+            $fotobaru = $this->upload->data('file_name');
+            $this->db->set('foto', $fotobaru);
+        } else {
+            $this->upload->display_errors();
+        }
+		$id_Pengguna = $this->input->post('id_pengguna');
+        $data = [
+			'nama'			=> $this->input->post('nama'),
+			'username'		=> $this->input->post('username'),
+			'email'			=> $this->input->post('email'),
+			'password'		=> $this->input->post('password'),
+			'role'			=> $this->input->post('role'),
+            'waktu_update'  => date('Y-m-d H:i:s')
+        ];
+        $this->db->where('id_pengguna',$id_Pengguna)->update('tb_pengguna',$data);
+        $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Pengguna !</div>');
+        redirect(base_url('dashboard/pengguna'));
+    }
+
+
+	public function hapus($id_pengguna){
+		$data = $this->db->where('id_pengguna',$id_pengguna)->get('tb_pengguna');
+        foreach ($data->result() as $u){
+            unlink('uploads/pengguna/'.$u->foto);
+        } 
+        $this->db->where('id_Pengguna',$id_pengguna)->delete('tb_pengguna');
+        $this->session->set_flashdata('sukses','<div class="alert alert-danger"> Berhasil Menghapus Pengguna !</div>');
+        redirect(base_url('dashboard/pengguna'));
 	}
 }

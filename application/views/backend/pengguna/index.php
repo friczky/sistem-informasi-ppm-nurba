@@ -41,25 +41,33 @@ $this->load->view('backend/komponen/sidebar-admin');
 					<th>No.</th>
                     <th>Nama</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>Role</th>
 										<th>Foto</th>
 										<th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+										<?php $no=1; foreach ($pengguna as $p): ?>
                   <tr>
-										<td>1.</td>
-                    <td>Trident</td>
-                    <td>Internet Explorer 4.0</td>
-                    <td>Win 95+</td>
-										<td>Win 95+</td>
-										<td>Win 95+</td>
+										<td><?= $no++?>.</td>
+                    <td><?= $p->nama?></td>
+                    <td><?= $p->email?></td>
                     <td>
-										<a href="<?= base_url()?>dashboard/pengguna/edit/1" class="btn btn-primary">Edit</a>
+											<?php
+											if($p->role == 0){
+													echo "Administrator"; }
+												else {
+													echo "Santri";
+												}
+												?>
+										</td>
+										<td><?= $p->foto?></td>
+										<td>
+										<a href="<?= base_url()?>dashboard/pengguna/edit/<?= $p->id_pengguna?>" class="btn btn-primary">Edit</a>
 										<a href="<?= base_url()?>dashboard/pungguna/hapus/1" class="btn btn-danger">Hapus</a>
 										</td>
                   </tr>
+									<?php endforeach; ?>
                   </tbody>
                 </table>
               </div>

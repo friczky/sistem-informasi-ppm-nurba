@@ -31,6 +31,7 @@ $this->load->view('backend/komponen/sidebar-admin');
     <section class="content">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
+				<?= form_open_multipart('backend/pengguna/store')?>
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title">Form Tambah Pengguna</h3>
@@ -74,7 +75,7 @@ $this->load->view('backend/komponen/sidebar-admin');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control" name="username" placeholder="Masukan Password" required>
+                  <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
                 </div>
               </div>   
             </div>
@@ -84,8 +85,9 @@ $this->load->view('backend/komponen/sidebar-admin');
                 <div class="form-group">
                   <label>Role</label>
                   <select name="role" id="" class="form-control" required>
-										<option value="" disabled>Pilih Role</option>
-										<option value="">Pilih Role</option>
+										<option>Pilih Role</option>
+										<option value="0">Administrator</option>
+										<option value="1">Sanri</option>
 									</select>
                 </div>
                 <!-- /.form-group -->
