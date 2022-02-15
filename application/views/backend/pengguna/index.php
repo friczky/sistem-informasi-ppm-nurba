@@ -71,7 +71,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
+              <!-- /.card-body --
             </div>
 	  </div>
 	</div>

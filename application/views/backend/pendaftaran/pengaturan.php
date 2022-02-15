@@ -63,7 +63,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                     </div>
                   </div>
                 </form>
-
+							<hr>
 								<table class="table" border="1">
 									<th>Nama</th>
 									<th>File</th>

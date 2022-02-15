@@ -103,6 +103,7 @@ $this->load->view('backend/komponen/sidebar-admin');
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="Simpan">
 			</div>
+			<?= form_close()?>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">

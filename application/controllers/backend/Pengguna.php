@@ -10,10 +10,8 @@ class Pengguna extends CI_Controller {
 	}
 	public function index()
 	{
-		
-		$data['title'] 		= 'Data Pengguna';
-		$data['pengguna'] 	= $this->db->order_by('id_pengguna','desc')->get('tb_pengguna')->result(); 
-		$data['role'] 		= '<?php if($pengguna["role"]== 0) { echo "Administrator";}else{echo "Santri";}?>';
+		$data['title'] = 'Data Pengguna';
+		$data['pengguna'] = $this->db->order_by('id_pengguna','desc')->get('tb_pengguna')->result(); 
 		$this->load->view('backend/pengguna/index',$data);
 	}
 
@@ -49,11 +47,10 @@ class Pengguna extends CI_Controller {
 	public function edit($id_pengguna){
 		$data['title'] = 'Edit Pengguna';
 		$data['pengguna'] = $this->db->where('id_pengguna',$id_pengguna)->get('tb_pengguna')->row_array();
-		$data['role'] 		= '<?php if($pengguna["role"]== 0) { echo "Administrator";}else{echo "Santri";}?>';
 		$this->load->view('backend/pengguna/edit',$data);
 	}
 
-	public function update(){
+	public function update($id_pengguna){
         $config['allowed_types'] = 'jpg|png|gif';
         $config['max_size'] = '0';
         $config['upload_path'] = './uploads/pengguna/';
@@ -68,19 +65,31 @@ class Pengguna extends CI_Controller {
         } else {
             $this->upload->display_errors();
         }
-		$id_Pengguna = $this->input->post('id_pengguna');
+		
         $data = [
 			'nama'			=> $this->input->post('nama'),
 			'username'		=> $this->input->post('username'),
 			'email'			=> $this->input->post('email'),
-			'password'		=> $this->input->post('password'),
 			'role'			=> $this->input->post('role'),
             'waktu_update'  => date('Y-m-d H:i:s')
         ];
-        $this->db->where('id_pengguna',$id_Pengguna)->update('tb_pengguna',$data);
+        $this->db->where('id_pengguna',$id_pengguna)->update('tb_pengguna',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Pengguna !</div>');
         redirect(base_url('dashboard/pengguna'));
     }
+
+	public function ganti_password($id_pengguna){
+		$data = [
+			'password' => md5($this->input->post('password')),
+		];
+		$url = 'dashboard/pengguna/edit/';
+		$id = $id_pengguna;
+		$hastag = '#ganti_password';
+		$data_url = $url.$id.$hastag; 
+		$this->db->where('id_pengguna',$id_pengguna)->update('tb_pengguna',$data);
+		$this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui password !</div>');
+        redirect(base_url($data_url));
+	}
 
 
 	public function hapus($id_pengguna){
