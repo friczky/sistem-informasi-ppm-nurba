@@ -11,19 +11,69 @@ class Pendaftaran extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data Pendaftaran';
-		$data['pendaftaran'] = $this->db->order_by('id_pendaftaran','desc')->get('tb_Pendaftaran')->result(); 
+		$data['pendaftar'] = $this->db->order_by('id_pendaftar','desc')->get('tb_pendaftaran')->result(); 
 		$this->load->view('backend/pendaftaran/index',$data);
 	}
 
 	public function pengaturan(){
 		$data['title'] = 'Pengaturan Pendaftaran';
+		$data['berkas'] = $this->db->where('id',1)->get('tb_pengaturan_pendaftaran')->row_array();
 		$this->load->view('backend/pendaftaran/pengaturan',$data);
 	}
 
-	public function tambah(){
-		$data['title'] = 'Tambah Pendaftaran';
-		$this->load->view('backend/Pendaftaran/tambah',$data);
+	public function status($opsi){
+		if ($opsi == 'aktif'){
+			$data = [
+				'status' => '1'
+			];
+			$this->db->where('id',1)->update('tb_pengaturan_pendaftaran',$data);
+			redirect(base_url('dashboard/pendaftaran/pengaturan'));
+		} elseif($opsi == 'nonaktif') {
+			$data = [
+				'status' => '0'
+			];
+			$this->db->where('id',1)->update('tb_pengaturan_pendaftaran',$data);
+			redirect(base_url('dashboard/pendaftaran/pengaturan'));
+		}
+		redirect(base_url('dashboard/pendaftaran/pengaturan'));
 	}
+
+	public function berkas(){
+		$config['allowed_types'] = 'docx|pdf|jpg|png|jpeg';
+        $config['max_size'] = '0';
+        $config['upload_path'] = './uploads/pendaftar/';
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('poster')) {
+			$poster_lama = $this->input->post('poster_lama');
+            if ($poster_lama != 'default.jpg') {
+                unlink(FCPATH . './uploads/pendaftar/' . $poster_lama);
+            }
+            $poster = $this->upload->data('file_name');
+            $this->db->set('poster', $poster);
+        } else {
+            $this->upload->display_errors();
+        }
+
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('formulir')) {
+			$formulir_lama = $this->input->post('formulir_lama');
+            if ($formulir_lama != 'default.jpg') {
+                unlink(FCPATH . './uploads/pendaftar/' . $formulir_lama);
+            }
+            $formulir = $this->upload->data('file_name');
+            $this->db->set('formulir', $formulir);
+        } else {
+            $this->upload->display_errors();
+        }
+        $data = [
+			'poster' => $poster,
+			'formulir' => $formulir,
+        ];
+        $this->db->where('id',1)->update('tb_pengaturan_pendaftaran',$data);
+        $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Pengaturan Pendaftaran !</div>');
+        redirect(base_url('dashboard/pendaftaran/pengaturan'));
+	}
+	
 
 	public function store(){
         $config['allowed_types'] = 'jpg|png|gif';

@@ -35,31 +35,35 @@ $this->load->view('backend/komponen/sidebar-admin');
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-				    
-              <form>
+              <?= form_open_multipart('backend/pendaftaran/berkas')?>
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
-										<a href="" class="btn btn-primary"><i class="fa fa-toggle-on" ></i> Aktif</a>
-										<a href="" class="btn btn-secondary"><i class="fa fa-toggle-off" ></i> Non Aktif</a>
+											<?php if($berkas['status'] == '1'){ ?>
+												<a href="<?= base_url()?>dashboard/pendaftaran/status/nonaktif" class="btn btn-primary"><i class="fa fa-toggle-on" ></i> Aktif</a>
+											<?php }else{ ?>
+												<a href="<?= base_url()?>dashboard/pendaftaran/status/aktif" class="btn btn-secondary"><i class="fa fa-toggle-off" ></i> Non Aktif</a>
+											<?php }?>
 										</div>
                   </div>
                   <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label">Poster</label>
                     <div class="col-sm-10">
-                      <input type="file" class="form-control" id="">
+                      <input type="file" class="form-control" name="poster" id="">
+											<input type="hidden" name="poster_lama" value="<?= $berkas['poster']?>">
                     </div>
                   </div>
 									<div class="form-group row">
-                    <label for="" class="col-sm-2 col-form-label">Formulir Pendaftaran</label>
+                    <label for="" name="formulir" class="col-sm-2 col-form-label">Formulir Pendaftaran</label>
                     <div class="col-sm-10">
-                      <input type="file" class="form-control" id="">
+                      <input type="file" name="formulir" class="form-control" id="">
+											<input type="hidden" name="formulir_lama" value="<?= $berkas['formulir']?>">
                     </div>
                   </div>
 									<div class="form-group row">
-                    <button class="btn btn-primary">Simpan</button>
+                    <label for="" name="formulir" class="col-sm-2 col-form-label">Aksi</label>
                     <div class="col-sm-10">
-                     
+										<button class="btn btn-primary">Simpan</button>
                     </div>
                   </div>
                 </form>
@@ -69,22 +73,18 @@ $this->load->view('backend/komponen/sidebar-admin');
 									<th>File</th>
 									<tr>
 										<td>Poster</td>
-										<td>Lihat</td>
+										<td><a href="<?= base_url()?>uploads/pendaftar/<?= $berkas['poster']?>">Lihat</a></td>
 									</tr>
 									<tr>
 										<td>File Pendaftaran</td>
-										<td>Lihat</td>
+										<td><a href="<?= base_url()?>uploads/pendaftar/<?= $berkas['formulir']?>">Lihat</a></td>
 									</tr>
 								</table>
             </div>
-    </div>
+    	</div>
 	  </div>
 	</div>
   </section>
-
-
 <?php 
-
 $this->load->view('backend/komponen/footer');
-
 ?>

@@ -52,14 +52,15 @@ $this->load->view('backend/komponen/sidebar-admin');
                             </tr>
                         </thead>
                         <tbody>
+							<?php $no=1; foreach ($pendaftar as $p): ?>
                             <tr>
-                                <td>1.</td>
-                                <td>Trident</td>
-                                <td>Internet Explorer 4.0</td>
-                                <td>Internet Explorer 4.0 </td>
-                                <td>Internet Explorer 4.0 </td>
+                                <td><?= $no++?></td>
+                                <td><?= $p->nama?></td>
+                                <td><?= $p->telpon?></td>
+                                <td><?= $p->kampus?> </td>
+                                <td><?= base_url()?>uploads/pendaftar/<?= $p->foto?> </td>
                                 <td>
-                                    <a href="#" class="badge badge-info" data-toggle="modal" data-target="#data">Klik Disini</a>
+                                    <a href="#" class="badge badge-info" data-toggle="modal" data-target="#data<?= $p->id_pendaftar?>">Klik Disini</a>
                                 </td>
                                 <td>
                                     <a href="#" class="badge badge-info" data-toggle="modal" data-target="#berkas">Klik Disini</a>
@@ -90,6 +91,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                                     </div>
                                 </td>
                             </tr>
+							<?php endforeach; ?>		
                         </tbody>
                     </table>
                 </div>
@@ -136,77 +138,78 @@ $this->load->view('backend/komponen/sidebar-admin');
 </div>
 
 <!-- modal data pendaftaran -->
-
-<div class="modal fade" id="data" style="display: none;" aria-hidden="true">
+<?php $no=1; foreach ($pendaftar as $p): ?>
+<div class="modal fade" id="data<?= $p->id_pendaftar?>" style="display: none;" aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content bg-default">
         <div class="modal-header">
-            <h4 class="modal-title">Data Lengkap : Alfin</h4>
+            <h4 class="modal-title">Data Lengkap : <?= $p->nama?></h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
         </div>
         <div class="modal-body">
            <table class="table">
+			   
 						 <tr>
 							 <td>Nama</td>
 							 <td>:</td>
-							 <td>Alfin Sarudin Love Jumadi</td>
+							 <td><?= $p->nama?></td>
 						 </tr>
 						 <tr>
 							 <td>Nama Panggilan</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->nama_panggilan?></td>
 						 </tr>
 						 <tr>
 							 <td>Tempat Lahir</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->tempat_lahir?></td>
 						 </tr>
 						 <tr>
 							 <td>Tanggal Lahir</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->tanggal_lahir?></td>
 						 </tr>
 						 <tr>
 							 <td>Cita-Cita</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->cita_cita?></td>
 						 </tr>
 						 <tr>
 							 <td>Alamat Asal</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->alamat_asal?></td>
 						 </tr>
 						 <tr>
 							 <td>Alamat Sekarang</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->alamat_sekarang?></td>
 						 </tr>
 						 <tr>
 							 <td>Email</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->email?></td>
 						 </tr>
 						 <tr>
 							 <td>No Hp/ Wa</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->telpon?></td>
 						 </tr>
 						 <tr>
 							 <td>Kampus</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->kampus?></td>
 						 </tr>
 						 <tr>
 							 <td>Semester</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->semester?></td>
 						 </tr>
 						 <tr>
 							 <td>Foto</td>
 							 <td>:</td>
-							 <td></td>
+							 <td><?= $p->foto?></td>
 						 </tr>
 					 </table>
     </div>
@@ -218,7 +221,7 @@ $this->load->view('backend/komponen/sidebar-admin');
 </div>
 <!-- /.modal-dialog -->
 </div>
-
+<?php endforeach;?>
 <?php 
 
 $this->load->view('backend/komponen/footer');

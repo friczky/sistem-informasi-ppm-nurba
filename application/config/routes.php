@@ -36,10 +36,11 @@ $route['dashboard/pengguna/role']			= 'backend/pengguna/role';
 $route['dashboard/pengguna/edit/(:any)']	= 'backend/pengguna/edit/$1';
 
 // pendaftaran
-$route['dashboard/pendaftaran']				= 'backend/pendaftaran';
-$route['dashboard/pendaftaran/tambah']		= 'backend/pendaftaran/tambah';
-$route['dashboard/pendaftaran/pengaturan']	= 'backend/pendaftaran/pengaturan';
-$route['dashboard/pendaftaran/edit/(:any)']	= 'backend/pendaftaran/edit/$1';
+$route['dashboard/pendaftaran']						= 'backend/pendaftaran';
+$route['dashboard/pendaftaran/status/(:any)']		= 'backend/pendaftaran/status/$1';
+$route['dashboard/pendaftaran/tambah']				= 'backend/pendaftaran/tambah';
+$route['dashboard/pendaftaran/pengaturan']			= 'backend/pendaftaran/pengaturan';
+$route['dashboard/pendaftaran/edit/(:any)']			= 'backend/pendaftaran/edit/$1';
 
 // Profile
 $route['dashboard/profile']					= 'backend/profile';
