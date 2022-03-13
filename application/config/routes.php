@@ -5,8 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] 			= 'welcome';
 // frontend
 $route['home']							= 'frontend/home';
-$route['admin']							= 'backend/dashboard';
+$route['admin']							= 'backend/dashboard/admin';
 $route['dashboard']						= 'backend/dashboard';
+
+// login
+$route['login']							= 'backend/auth';
+$route['logout']						= 'backend/auth/logout';
 
 // berita
 $route['dashboard/berita']				= 'backend/berita';
@@ -48,6 +52,17 @@ $route['dashboard/pendaftaran/tambah']		= 'backend/pendaftaran/tambah';
 $route['dashboard/pendaftaran/pengaturan']	= 'backend/pendaftaran/pengaturan';
 $route['dashboard/pendaftaran/edit/(:any)']	= 'backend/pendaftaran/edit/$1';
 
+// Sistem
+
+$route['dashboard/sistem']					= 'backend/sistem';
+$route['dashboard/sistem/kontak']			= 'backend/sistem/kontak';
+
+// Santri
+
+$route['santri']							= 'santri/dashboard';
+$route['dashboard/sistem/kontak']			= 'backend/sistem/kontak';
+
+// DLL
 $route['sitemap\.xml']			= 'sitemap';
 $route['404_override'] 			= '';
 $route['translate_uri_dashes'] 	= FALSE;

@@ -68,14 +68,17 @@ $this->load->view('backend/komponen/sidebar-admin');
                   </div>
                 </form>
 							<hr>
-								<table class="table" border="1">
+								<table class="table">
+									<th>No.</th>
 									<th>Nama</th>
 									<th>File</th>
 									<tr>
+										<td>1</td>
 										<td>Poster</td>
 										<td><a href="<?= base_url()?>uploads/pendaftar/<?= $berkas['poster']?>">Lihat</a></td>
 									</tr>
 									<tr>
+										<td>2</td>
 										<td>File Pendaftaran</td>
 										<td><a href="<?= base_url()?>uploads/pendaftar/<?= $berkas['formulir']?>">Lihat</a></td>
 									</tr>
@@ -85,6 +88,7 @@ $this->load->view('backend/komponen/sidebar-admin');
 	  </div>
 	</div>
   </section>
+	
 <?php 
 $this->load->view('backend/komponen/footer');
 ?>

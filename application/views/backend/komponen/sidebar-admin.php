@@ -166,7 +166,7 @@
                         <p>
                             Man Pendaftaran
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-primary right">6</span>
+                            <span class="badge badge-primary right"><?= $this->db->count_all('tb_pendaftaran')?></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -191,7 +191,7 @@
                         <p>
                             Man Pengguna
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-primary right">6</span>
+                            <span class="badge badge-primary right"><?= $this->db->count_all('tb_pengguna')?></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -215,25 +215,24 @@
                         <p>
                             Sistem Web
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-primary right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url()?>dashboard/pengguna/tambah" class="nav-link">
+                            <a href="<?= base_url()?>dashboard/sistem/kontak" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kontak</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url()?>dashboard/pengguna" class="nav-link">
+                            <a href="<?= base_url()?>dashboard/sistem" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kustomisasi</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item">	
                     <a href="<?= base_url()?>dashboard/profile" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -243,11 +242,10 @@
                 </li>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url()?>dashboard/logout" class="nav-link">
+                <a href="<?= base_url('logout')?>" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     <p>
                         Logout
-
                     </p>
                 </a>
             </li>

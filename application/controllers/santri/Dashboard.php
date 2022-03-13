@@ -21,11 +21,6 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Home' ;
-		$this->load->view('backend/v_dashboard',$data);
-	}
-
-	public function admin()
-	{
-		redirect(base_url('dashboard'));
+		$this->load->view('santri/v_dashboard',$data);
 	}
 }
