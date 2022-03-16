@@ -11,8 +11,16 @@ class Pendaftaran extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Pendaftaran Santri Baru';
+		$id_santri = $this->session->userdata('id');
+		
+		$data['title'] 			= 'Pendaftaran Santri Baru';
+		$data['pendaftaran']	= $this->db->where('id_user',$id_santri)->get('tb_pendaftaran')->row_array();
 		$this->load->view('santri/pendaftaran/index',$data);
+	}
+
+	public function berkas(){
+		$data['title'] = 'Berkas Pendaftaran';
+		$this->load->view('santri/pendaftaran/berkas',$data);
 	}
 
 	public function tambah(){
@@ -43,7 +51,7 @@ class Pendaftaran extends CI_Controller {
             'id_kategori'	=> $this->input->post('id_kategori'),
             'konten'		=> $this->input->post('konten'),
             'foto'          => $foto,
-            'waktu_buat'      => date('Y-m-d H:i:s')
+            'waktu_buat'    => date('Y-m-d H:i:s')
         ];
         $this->db->insert('tb_berita',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil menambahkan berita !</div>');

@@ -5,6 +5,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] 			= 'welcome';
 // frontend
 $route['home']							= 'frontend/home';
+$route['kajian']						= 'frontend/home/kajian';
+$route['ustadz']						= 'frontend/home/ustadz';
+$route['santri']						= 'frontend/home/santri';
+$route['berita']						= 'frontend/home/berita';
+$route['kategori/(:any)/(:any)']		= 'frontend/home/kategori/$1/$2';
+$route['baca/(:any)']					= 'frontend/home/baca/$1';
+$route['kontak']						= 'frontend/home/kontak';
+$route['tentang']						= 'frontend/home/tentang';
 $route['admin']							= 'backend/dashboard/admin';
 $route['dashboard']						= 'backend/dashboard';
 

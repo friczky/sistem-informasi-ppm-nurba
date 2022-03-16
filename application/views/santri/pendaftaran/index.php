@@ -38,73 +38,199 @@ $this->load->view('santri/komponen/sidebar-santri');
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url()?>santri/sistem/kontak" method="POST">
+                    <form action="<?= base_url()?>santri/pendaftaran" method="POST">
                     <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="nama"
+								<?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['nama'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nama Lengkap"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Nama Panggilan</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="nama_panggilan"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['nama_panggilan'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nama Panggilan"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="tempat_lahir"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['tempat_lahir'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Tempat Lahir"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="date"
+                                class="form-control"
+                                name="tanggal_lahir"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['tanggal_lahir'] ?>"
+								<?php }else{?>
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Cita-Cita</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="cita_cita"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['cita_cita'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Cita Cita"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Alamat Asal</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="alamat_asal"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['alamat_asal'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Alamat Asal"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Alamat Sekarang</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="alamat_selakarang"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['alamat_sekarang'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Alamat Sekarang"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="email"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['email'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Alamat Email"
+								<?php }?>
+                                id="">
+                        </div>
+                    </div>
+					<div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">Telpon</label>
                         <div class="col-sm-10">
                             <input
                                 type="text"
                                 class="form-control"
                                 name="telpon"
-                                value=""
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['telpon'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nomor Telpon/Whatsapp"
+								<?php }?>
                                 id="">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="" name="formulir" class="col-sm-2 col-form-label">Email</label>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Kampus</label>
                         <div class="col-sm-10">
                             <input
                                 type="text"
-                                name="email"
                                 class="form-control"
-                                value=""
+                                name="kampus"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['kampus'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nama Kampus"
+								<?php }?>
                                 id="">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="" name="formulir" class="col-sm-2 col-form-label">Facebook</label>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Semester</label>
                         <div class="col-sm-10">
                             <input
                                 type="text"
-                                name="facebook"
                                 class="form-control"
-                                value=""
+                                name="semester"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['semester'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Semester Sekarang"
+								<?php }?>
                                 id="">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="" name="formulir" class="col-sm-2 col-form-label">Instagram</label>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Foto</label>
                         <div class="col-sm-10">
                             <input
-                                type="text"
-                                name="instagram"
+                                type="file"
                                 class="form-control"
-                                value=""
+                                name="foto"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="<?= $pendaftaran['nama_panggilan'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nama Panggilan"
+								<?php }?>
                                 id="">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="" name="formulir" class="col-sm-2 col-form-label">Youtube</label>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Aksi</label>
                         <div class="col-sm-10">
                             <input
-                                type="text"
-                                name="youtube"
-                                class="form-control"
-                                value=""
+                                type="submit"
+                                class="btn btn-primary"
+                                name="simpan"
+                                <?php if($pendaftaran > 0) { ?>
+                                value="Perbahrui"
+								<?php }else{?>
+								value="Simpan"
+								<?php }?>
                                 id="">
-                        </div>
-                    </div>
-										<div class="form-group row">
-                        <label for="" name="formulir" class="col-sm-2 col-form-label">Maps</label>
-                        <div class="col-sm-10">
-                            <textarea name="maps" id="" cols="10" rows="5" class="form-control"></textarea>
-							<input type="hidden" name="id_sistem" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="" name="" class="col-sm-2 col-form-label">Aksi</label>
-                        <div class="col-sm-10">
-                            <input type="submit" class="btn btn-primary" value="Simpan" name="update">
                         </div>
                     </div>
                 </form>

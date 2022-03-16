@@ -20,10 +20,58 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('frontend/v_home');
+		$data['title']	= 'Home';
+		$this->load->view('frontend/index',$data);
 	}
 
-	public function about(){
-		$this->load->view('frontend/v_about');
+	public function berita()
+	{
+		$data['title']		= 'Home';
+		$data['berita']		= $this->db->order_by('id_berita','DESC')->get('tb_berita')->result();
+		$this->load->view('frontend/berita',$data); 	
+	}
+
+	public function kategori($id,$kategori)
+	{
+		$data['judul']		= $kategori ;
+		$data['title']		= 'Home';
+		$data['berita']		= $this->db->where('id_kategori',$id)->get('tb_berita')->result();
+		$this->load->view('frontend/kategori',$data); 	
+	}
+
+	public function baca($slug)
+	{
+		$data['title']	= 'Home';
+		$data['baca']	= $this->db->get_where('tb_berita',['slug'=>$slug])->row_array();
+		$data['berita']	= $this->db->order_by('id_berita','DESC')->get('tb_berita')->result();
+		$this->load->view('frontend/baca-berita',$data);
+	}
+
+	public function kajian()
+	{
+		$data['title']	= 'Kajian';
+		$this->load->view('frontend/kajian',$data);
+	}
+
+	public function ustadz()
+	{
+		$data['title']	= 'Ustadz';
+		$this->load->view('frontend/ustadz',$data);
+	}
+
+	public function santri()
+	{
+		$data['title']	= 'Santri';
+		$this->load->view('frontend/santri',$data);
+	}
+
+	public function kontak()
+	{
+		$data['title']	= 'Home';
+		$this->load->view('frontend/kontak',$data);
+	}
+
+	public function tentang(){
+		$this->load->view('frontend/tentang');
 	}
 }

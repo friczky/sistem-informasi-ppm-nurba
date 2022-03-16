@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-  <!-- basic -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- mobile metas -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Website Official PPM Nur Baiturrahman">
+  <meta name="author" content="dreambuzz">
+
+  <title><?= $title ?></title>
+
+  <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <!-- site metas -->
-  <title>mind</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- fevicon -->
-  <link rel="icon" href="<?= base_url()?>assets/frontend/images/fevicon.png" type="image/gif" />
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/css/bootstrap.min.css">
-  <!-- style css -->
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/bootstrap/bootstrap.css">
+  <!-- Iconfont Css -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/awesome/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/flaticon/flaticon.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/fonts/gilroy/font-gilroy.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/magnific-popup/magnific-popup.css">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/animate-css/animate.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/animated-headline/animated-headline.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/owl/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/vendors/owl/assets/owl.theme.default.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/css/woocomerce.css">
   <link rel="stylesheet" href="<?= base_url()?>assets/frontend/css/style.css">
-  <!-- Responsive-->
-  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/css/responsive.css">  
-  <!-- Scrollbar Custom CSS -->
-  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/css/jquery.mCustomScrollbar.min.css">
-  <!-- Tweaks for older IEs-->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  <link rel="stylesheet" href="<?= base_url()?>assets/frontend/css/responsive.css">
+
 </head>
-<!-- body -->
+
+<body id="top-header">

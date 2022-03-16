@@ -18,23 +18,33 @@ class Auth extends CI_Controller {
 
         if ($data->num_rows() > 0) {
                 $user = $data->row_array();
-                $data_sess = array(
-                    'nama'    		=> $user['nama'],
-                    'username'         => $username,
-                    'foto'          => $user['foto'],
-                    'id'       		=> $user['id'],
-                    'role'          => $user['role'],
-                    'status'		=> 'login',
-                );
-                $this->session->set_userdata( $data_sess );
-            
-            redirect(base_url('admin'));
+                if ($user['role'] == '0') {
+					$data_sess = array(
+						'nama'    		=> $user['nama'],
+						'username'         => $username,
+						'foto'          => $user['foto'],
+						'id'       		=> $user['id'],
+						'role'          => $user['role'],
+						'status'		=> 'login',
+					);
+					$this->session->set_userdata( $data_sess );
+					redirect(base_url('admin'));
+				} else {
+					$data_sess = array(
+						'nama'    		=> $user['nama'],
+						'username'      => $username,
+						'foto'          => $user['foto'],
+						'id'       		=> $user['id'],
+						'role'          => $user['role'],
+						'status'		=> 'login',
+					);
+					$this->session->set_userdata( $data_sess );
+					redirect(base_url('santri'));
+				}
             }else {
                 $this->session->set_flashdata('alert','<div class="alert alert-warning">Username atau Kata Sandi Salah !</div>');
                 redirect(base_url('login'));
-        }
-        
-
+        	}
     }
 
     public function logout(){
