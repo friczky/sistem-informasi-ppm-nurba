@@ -43,7 +43,7 @@ class Home extends CI_Controller {
 	{
 		$data['title']	= 'Home';
 		$data['baca']	= $this->db->get_where('tb_berita',['slug'=>$slug])->row_array();
-		$data['berita']	= $this->db->order_by('id_berita','DESC')->get('tb_berita')->result();
+		$data['berita']	= $this->db->order_by('id_berita','DESC')->get('tb_berita',3)->result();
 		$this->load->view('frontend/baca-berita',$data);
 	}
 

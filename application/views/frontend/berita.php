@@ -89,9 +89,10 @@
                     <div class="widget widget_latest_post">
                         <h4 class="widget-title">Latest Posts</h4>
                         <div class="recent-posts">
+							<?php foreach($berita as $b) {?>
                             <div class="single-latest-post">
                                 <div class="widget-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/sm3.png" alt="" class="img-fluid"></a>
+                                    <a href="<?= base_url('baca/').$b->slug?>"><img src="<?= base_url('uploads/berita/').$b->foto?>" alt="" class="img-fluid"></a>
                                 </div>
                                 <div class="widget-content">
                                     <h5>
@@ -101,31 +102,8 @@
                                         <i class="fa fa-calendar-times"></i>10 april 2021</span>
                                 </div>
                             </div>
-
-                            <div class="single-latest-post">
-                                <div class="widget-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/sm2.png" alt="" class="img-fluid"></a>
-                                </div>
-                                <div class="widget-content">
-                                    <h5>
-                                        <a href="blog-single.html">World’s most famous app developers</a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-calendar-times"></i>10 april 2021</span>
-                                </div>
-                            </div>
-                            <div class="single-latest-post">
-                                <div class="widget-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/sm3.png" alt="" class="img-fluid"></a>
-                                </div>
-                                <div class="widget-content">
-                                    <h5>
-                                        <a href="blog-single.html">Be a top rated marketer</a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-calendar-times"></i>10 april 2021</span>
-                                </div>
-                            </div>
+							<?php }?>
+                           
                         </div>
                     </div>
 
