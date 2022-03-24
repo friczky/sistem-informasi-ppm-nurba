@@ -28,6 +28,7 @@ class Home extends CI_Controller {
 	{
 		$data['title']		= 'Home';
 		$data['berita']		= $this->db->order_by('id_berita','DESC')->get('tb_berita')->result();
+		$data['kategori']	= $this->db->get('tb_kategori')->result();
 		$this->load->view('frontend/berita',$data); 	
 	}
 
@@ -36,6 +37,7 @@ class Home extends CI_Controller {
 		$data['judul']		= $kategori ;
 		$data['title']		= 'Home';
 		$data['berita']		= $this->db->where('id_kategori',$id)->get('tb_berita')->result();
+		$data['kategori']	= $this->db->get('tb_kategori')->result();
 		$this->load->view('frontend/kategori',$data); 	
 	}
 
@@ -44,6 +46,7 @@ class Home extends CI_Controller {
 		$data['title']	= 'Home';
 		$data['baca']	= $this->db->get_where('tb_berita',['slug'=>$slug])->row_array();
 		$data['berita']	= $this->db->order_by('id_berita','DESC')->get('tb_berita',3)->result();
+		$data['kategori']	= $this->db->get('tb_kategori')->result();
 		$this->load->view('frontend/baca-berita',$data);
 	}
 
@@ -67,11 +70,12 @@ class Home extends CI_Controller {
 
 	public function kontak()
 	{
-		$data['title']	= 'Home';
+		$data['title']	= 'Kontak';
 		$this->load->view('frontend/kontak',$data);
 	}
 
 	public function tentang(){
-		$this->load->view('frontend/tentang');
+		$data['title']	= 'Tentang';
+		$this->load->view('frontend/tentang',$data);
 	}
 }
