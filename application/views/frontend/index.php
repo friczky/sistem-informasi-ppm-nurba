@@ -7,14 +7,13 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-md-12 col-xl-6 col-lg-6">
                 <div class="banner-content ">
-                    <span class="subheading">Over 3000 Course Available</span>
-                    <h1>Upgrade your learning Skills & Upgrade your life</h1>
-                    <p class="mb-40"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ullam libero magni reiciendis
-                        quam ipsa blanditiis, facilis velit eaque illo?</p>
+                    <span class="subheading">Assalamualaikum Warahmatulahi Wabarokatuh.</span>
+                    <h1>Kulian sambil Mondok di PPM Nur Baiturrahman</h1>
+                    <p class="mb-40"> Mendapatkan Ilmu dunia dan Akhirat secara bersama ? Tentu bisa dong , Mari bergabung di Pondok Pesantren Nur Baiturrahman</p>
 
                     <div class="btn-container">
-                        <a href="#" class="btn btn-main rounded">Find Courses</a>
-                        <a href="#" class="btn btn-white rounded ms-2">Get started </a>
+                        <a href="<?= base_url()?>tentang" class="btn btn-main rounded">Tentang PPM</a>
+                        <a href="<?= base_url()?>daftar" class="btn btn-white rounded ms-2">Mendaftar </a>
                     </div>
                 </div>
             </div>
@@ -35,38 +34,29 @@
         <div class="row justify-content-center" >
             <div class="col-xl-12 counter-inner">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="counter-item mb-5 mb-lg-0">
                             <div class="count">
-                                <span class="counter h2">2000</span><span>+</span>
+                                <span class="counter h2"><?= $this->db->count_all('tb_ustadz')?></span>
                             </div>
-                            <p>Students</p>
+                            <p>Ustadz Pengajar</p>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="counter-item mb-5 mb-lg-0">
                             <div class="count">
-                                <span class="counter h2">1200</span>
+                                <span class="counter h2"><?= $this->db->count_all('tb_santri')?></span>
                             </div>
-                            <p>Online Courses</p>
+                            <p>Mahasantri</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="counter-item mb-5 mb-lg-0">
                             <div class="count">
-                                <span class="counter h2">2256</span>
+                                <span class="counter h2"><?= $this->db->count_all('tb_kajian')?></span>
                             </div>
-                            <p>Finished Seasons</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="counter-item">
-                            <div class="count">
-                                <span class="counter h2">100</span><span>%</span>
-                            </div>
-                            <p>Satisfaction</p>
+                            <p>Materi Yang Kajian</p>
                         </div>
                     </div>
                 </div>
@@ -76,90 +66,35 @@
 </section>
 <!-- COunter Section End -->
 
-
-
-
-
-
-
 <!--  Course category -->
 <section class="counter-section4 section-padding">
     <div class="container">
+		
         <div class="row mb-70 justify-content-center">
             <div class="col-xl-8">
                 <div class="section-heading text-center">
                 <br>
-                    <h2 class="font-lg">Daftar materi yang di Kaji</h2>
-                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam</p>
+                    <h2 class="font-lg">Materi Kajian</h2>
+                    <!-- <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam</p> -->
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xl col-lg-4 col-sm-6">
-                <div class="single-course-category style-3 bg-1">
-                    <div class="course-cat-icon">
-                        <img src="<?= base_url()?>assets/frontend/images/icon/icon1.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="course-cat-content">
-                        <h4 class="course-cat-title">
-                            <a href="#">Data Science & Analytics</a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl col-lg-4 col-sm-6">
-                <div class="single-course-category style-3 bg-2">
-                    <div class="course-cat-icon">
-                        <img src="<?= base_url()?>assets/frontend/images/icon/icon2.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="course-cat-content">
-                        <h4 class="course-cat-title">
-                            <a href="#">Artificial Intellegence</a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl col-lg-4 col-sm-6">
-                <div class="single-course-category style-3 bg-3">
-                    <div class="course-cat-icon">
-                        <img src="<?= base_url()?>assets/frontend/images/icon/icon3.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="course-cat-content">
-                        <h4 class="course-cat-title">
-                            <a href="#">Algebra Math calculation</a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl col-lg-4 col-sm-6">
-                <div class="single-course-category style-3 bg-4">
-                    <div class="course-cat-icon">
-                        <img src="<?= base_url()?>assets/frontend/images/icon/icon4.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="course-cat-content">
-                        <h4 class="course-cat-title">
-                            <a href="#">Web Development</a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl col-lg-4 col-sm-6">
+		<?php foreach($kajian as $kajian) : ?>
+            <div class="col-xl  col-sm-6">
                 <div class="single-course-category style-3 bg-5">
                     <div class="course-cat-icon">
-                        <img src="<?= base_url()?>assets/frontend/images/icon/icon6.png" alt="" class="img-fluid">
+                        <img src="<?= base_url()?>uploads/sistem/quran.png" alt="" class="img-fluid">
                     </div>
                     <div class="course-cat-content">
                         <h4 class="course-cat-title">
-                            <a href="#">Digital Marketing & SEO</a>
+                           <?= substr($kajian->nama_kajian,0,13)?>
                         </h4>
                     </div>
                 </div>
             </div>
+		<?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -179,11 +114,12 @@
         <div class="row align-items-center">
             <div class="col-xl-7 pe-xl-5 col-lg-12">
                 <div class="row">
+
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="step-item ">
                             <div class="step-number bg-1">01</div>
                             <div class="step-text">
-                                <h5>Signup with all info</h5>
+                                <h5>Kamar</h5>
                                 <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
                             </div>
                         </div>
@@ -193,7 +129,7 @@
                         <div class="step-item">
                             <div class="step-number bg-2">02</div>
                             <div class="step-text">
-                                <h5>Take your Admission</h5>
+                                <h5>Lemari</h5>
                                 <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
                             </div>
                         </div>
@@ -203,7 +139,7 @@
                         <div class="step-item">
                             <div class="step-number bg-3">03</div>
                             <div class="step-text">
-                                <h5>Learn from online </h5>
+                                <h5>Wi-Fi </h5>
                                 <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
                             </div>
                         </div>
@@ -213,11 +149,12 @@
                         <div class="step-item">
                             <div class="step-number bg-1">04</div>
                             <div class="step-text">
-                                <h5>Get certificate</h5>
+                                <h5>Toilet 8 Pintu</h5>
                                 <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
 
@@ -247,12 +184,14 @@
         </div>
 
         <div class="row justify-content-lg-center">
+
+			 <?php foreach ($berita as $b) { ?>
+
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="course-grid tooltip-style bg-white hover-shadow">
                     <div class="course-header">
                         <div class="course-thumb">
-                            <img src="<?= base_url()?>assets/frontend/images/course/img_01.jpg" alt="" class="img-fluid">
-                            <div class="course-price">$300</div>
+                            <img src="<?= base_url()?>uploads/berita/<?= $b->foto?>" alt="" width="340px" height="223" class="img">
                         </div>
                     </div>
 
@@ -264,108 +203,19 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
 
-                            <span>3.9 (30 reviews)</span>
+                            <!-- <span>3.9 (30 reviews)</span> -->
                         </div>
-                        <h3 class="course-title mb-20"> <a href="#">SQL-Data Analysis: Crash Course</a> </h3>
+                        <h3 class="course-title mb-20"> <a href="<?= base_url()?>baca/<?= $b->slug?>"><?= $b->judul ?></a> </h3>
                         <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                            <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>26 Lessons</span>
+                            
+                            <span class="lessons"><i class="far fa-user me-2"></i><?php $user = $this->db->where('id_pengguna',$b->id_user)->get('tb_pengguna')->row_array(); if ($user > 1){ echo $user['nama']; } else { echo "Anonymous" ;}?></span>
                         </div>
                     </div>
                 </div>
              </div>
             <!-- COURSE END -->
+			<?php } ?>
 
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="course-grid tooltip-style bg-white hover-shadow">
-                    <div class="course-header">
-                        <div class="course-thumb">
-                            <img src="<?= base_url()?>assets/frontend/images/course/img_05.jpg" alt="" class="img-fluid">
-                            <div class="course-price">$300</div>
-                        </div>
-                    </div>
-
-                    <div class="course-content">
-                        <div class="rating mb-10">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-
-                            <span>3.9 (30 reviews)</span>
-                        </div>
-                        <h3 class="course-title mb-20"> <a href="#">Learn How to Start an Amazon FBA Store</a> </h3>
-                        <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                            <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>26 Lessons</span>
-                        </div>
-                    </div>
-                </div>
-             </div>
-            <!-- COURSE END -->
-
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="course-grid tooltip-style bg-white hover-shadow">
-                    <div class="course-header">
-                        <div class="course-thumb">
-                            <img src="<?= base_url()?>assets/frontend/images/course/img_02.jpg" alt="" class="img-fluid">
-                            <div class="course-price">$300</div>
-                        </div>
-                    </div>
-
-                    <div class="course-content">
-                        <div class="rating mb-10">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-
-                            <span>3.9 (30 reviews)</span>
-                        </div>
-
-                        <h3 class="course-title mb-20"> <a href="#">Emotional Intelligence at Work: Learn Emotions</a> </h3>
-
-                        <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                            <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>26 Lessons</span>
-                        </div>
-                    </div>
-                </div>
-             </div>
-            <!-- COURSE END -->
-
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="course-grid tooltip-style bg-white hover-shadow">
-                    <div class="course-header">
-                        <div class="course-thumb">
-                            <img src="<?= base_url()?>assets/frontend/images/course/img_03.jpg" alt="" class="img-fluid">
-                            <div class="course-price">$300</div>
-                        </div>
-                    </div>
-
-                    <div class="course-content">
-                        <div class="rating mb-10">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-
-                            <span>3.9 (30 reviews)</span>
-                        </div>
-
-                        <h3 class="course-title mb-20"> <a href="#">Competitive Strategy law & Organization </a> </h3>
-
-                        <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                            <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>26 Lessons</span>
-                        </div>
-                    </div>
-                </div>
-             </div>
-            <!-- COURSE END -->
         </div>
     </div>
 </section>
@@ -442,22 +292,23 @@
             <div class="col-lg-8 col-xl-8">
                 <div class="section-heading text-center text-lg-start">
                     <h2 class="font-lg">Ustadz Yang Mengajar</h2>
-                    <p>Discover Your Perfect Program In Our Courses.</p>
+                    <p>Ustadz yang mengajar memiliki ilmu yang berlimpah untuk kita pelajari.</p>
                 </div>
             </div>
 
              <div class="col-xl-4 col-lg-4">
                 <div class="text-center text-lg-end">
-                    <a href="#" class="btn btn-main-outline rounded">All Instructors <i class="fa fa-angle-right"></i></a>
+                    <a href="<?= base_url()?>ustadz" class="btn btn-main-outline rounded">Semua Ustadz <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xl-3 col-lg-4 col-sm-6">
+			<?php foreach ($ustadz as $u) { ?>
+            <div class="col-xl-4 col-lg-4 col-sm-6">
                 <div class="team-item team-item-4 mb-70 mb-xl-0">
                     <div class="team-img">
-                        <img src="<?= base_url()?>assets/frontend/images/team/team-4.jpg" alt="" class="img-fluid">
+					<img src="<?php if ($u->foto == ''){?><?= base_url()?>uploads/ustadz/default.png <?php }else{?><?= base_url()?>uploads/ustadz/<?= $u->foto ; }?>" alt="" class="img-fluid">
 
                         <ul class="team-socials list-inline">
                             <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -467,88 +318,17 @@
                     </div>
                     <div class="team-content">
                         <div class="team-info">
-                            <h4>Harish Ham</h4>
-                            <p>SEO Expert</p>
+                            <h4><?= $u->nama?></h4>
+                            <p>Pengajar</p>
                         </div>
 
                         <div class="course-meta">
-                            <span class="duration"><i class="far fa-user-alt"></i>20 Students</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>2 Course</span>
+						<span class="lessons"><i class="far fa-play-circle me-2"></i>Mengajar <?= $data = $this->db->where('id_ustadz',$u->id_ustadz)->count_all_results('tb_kajian')?> Materi Kajian</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item team-item-4 mb-70 mb-xl-0">
-                    <div class="team-img">
-                        <img src="<?= base_url()?>assets/frontend/images/team/team-1.jpg" alt="" class="img-fluid">
-                        <ul class="team-socials list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-info">
-                            <h4>Harish Ham</h4>
-                            <p>CEO, Developer</p>
-                        </div>
-                        <div class="course-meta">
-                            <span class="duration"><i class="far fa-user-alt"></i>20 Students</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>2 Course</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item team-item-4 mb-70 mb-xl-0">
-                    <div class="team-img">
-                        <img src="<?= base_url()?>assets/frontend/images/team/team-2.jpg" alt="" class="img-fluid">
-
-                        <ul class="team-socials list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-info">
-                            <h4>Harish Ham</h4>
-                            <p>Web eveloper</p>
-                        </div>
-                        <div class="course-meta">
-                            <span class="duration"><i class="far fa-user-alt"></i>20 Students</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>2 Course</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item team-item-4">
-                    <div class="team-img">
-                        <img src="<?= base_url()?>assets/frontend/images/team/team-3.jpg" alt="" class="img-fluid">
-
-                        <ul class="team-socials list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-info">
-                            <h4>Harish Ham</h4>
-                            <p>Marketer</p>
-                        </div>
-
-                        <div class="course-meta">
-                            <span class="duration"><i class="far fa-user-alt"></i>20 Students</span>
-                            <span class="lessons"><i class="far fa-play-circle me-2"></i>2 Course</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<?php } ?>
         </div>
     </div>
 </section>

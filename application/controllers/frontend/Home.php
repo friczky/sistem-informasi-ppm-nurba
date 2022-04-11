@@ -3,24 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+
 	public function index()
 	{
 		$data['title']	= 'Home';
+		$data['berita']		= $this->db->order_by('id_berita','DESC')->get('tb_berita',4)->result();
+		$data['kategori']	= $this->db->get('tb_kategori')->result();
+		$data['ustadz']	= $this->db->order_by('id_ustadz','RANDOM')->get('tb_ustadz',3)->result();
+		$data['warna']= array('bg-1','bg-2','bg-3','bg-4','bg-5');
+		$data['kajian']	= $this->db->order_by('id_kajian','RANDOM')->get('tb_kajian',5)->result();
 		$this->load->view('frontend/index',$data);
 	}
 
@@ -53,18 +44,21 @@ class Home extends CI_Controller {
 	public function kajian()
 	{
 		$data['title']	= 'Kajian';
+		$data['kajian']	= $this->db->order_by('id_kajian','DESC')->get('tb_kajian')->result();
 		$this->load->view('frontend/kajian',$data);
 	}
 
 	public function ustadz()
 	{
 		$data['title']	= 'Ustadz';
+		$data['ustadz']	= $this->db->order_by('id_ustadz','DESC')->get('tb_ustadz')->result();
 		$this->load->view('frontend/ustadz',$data);
 	}
 
 	public function santri()
 	{
 		$data['title']	= 'Santri';
+		$data['santri']	= $this->db->order_by('id_santri','DESC')->get('tb_santri')->result();
 		$this->load->view('frontend/santri',$data);
 	}
 

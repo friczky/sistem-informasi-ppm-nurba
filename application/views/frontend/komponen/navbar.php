@@ -79,7 +79,7 @@
                         <li><a href="<?= base_url('berita')?>">Berita</a></li>
                         <li><a href="<?= base_url('kajian')?>">Kajian</a></li>
                         <li><a href="<?= base_url('ustadz')?>">Ustadz</a></li>
-                        <li><a href="<?= base_url('santri')?>">Santri</a></li>
+                        <li><a href="<?= base_url('mahasantri')?>">Mahasantri</a></li>
                         <li><a href="<?= base_url('tentang')?>">Tentang</a></li>
                         <li><a href="<?= base_url('kontak')?>">Kontak</a></li>
                     </ul>

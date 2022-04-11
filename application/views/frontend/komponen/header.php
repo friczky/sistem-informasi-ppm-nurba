@@ -5,7 +5,7 @@
   <meta name="description" content="Website Official PPM Nur Baiturrahman">
   <meta name="author" content="dreambuzz">
 
-  <title><?= $title ?></title>
+  <title><?= strtoupper($title) ?> - PPM NURBAITURRAHMAN</title>
 
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">

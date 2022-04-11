@@ -28,4 +28,8 @@ class Dashboard extends CI_Controller {
 	{
 		redirect(base_url('dashboard'));
 	}
+
+	public function test(){
+		$this->load->view('backend/komponen/test');
+	}
 }

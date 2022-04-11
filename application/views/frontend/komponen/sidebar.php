@@ -18,10 +18,10 @@
                 </div>
                 <div class="widget-content">
                     <h5>
-                        <a href="blog-single.html">Custom Platform for an Audit Insurance</a>
+                        <a href="<?= base_url('baca/').$b->slug?>"><?= $b->judul?></a>
                     </h5>
                     <span>
-                        <i class="fa fa-calendar-times"></i>10 april 2021</span>
+                        <i class="fa fa-calendar"></i><?= $b->waktu_buat?></span>
                 </div>
             </div>
             <?php }?>

@@ -32,4 +32,8 @@
 
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url()?>assets/backend/plugins/summernote/summernote-bs4.min.css">
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
 </head>

@@ -91,7 +91,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input type="file" class="form-control" name="foto" id="" required="required">
+                                <input type="file" class="form-control" name="foto" id="">
                             </div>
                         </div>
                     </div>

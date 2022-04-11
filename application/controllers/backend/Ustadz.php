@@ -28,7 +28,7 @@ class Ustadz extends CI_Controller {
         if ($this->upload->do_upload('foto')) {
             $foto = $this->upload->data('file_name');
         } else {
-            $this->upload->display_errors();
+            // $this->upload->display_errors();
         }
         $data = [
             'nama'			=> $this->input->post('nama'),

@@ -84,8 +84,8 @@ src="<?= base_url()?>assets/backend/plugins/datatables-buttons/js/buttons.print.
 src="<?= base_url()?>assets/backend/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <!-- Summernote -->
-<script
-src="<?= base_url()?>assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="<?= base_url()?>assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
+
 
 <script>
 $(document).ready(function () {
@@ -96,6 +96,7 @@ $(document).ready(function () {
 
 });
 </script>
+
 <script>
 $(function () {
     $("#example1")
@@ -139,5 +140,13 @@ $(function () {
     });
 })
 </script>
+
+<script>
+        // Jquery draggable
+        $('.modal-dialog').draggable({
+            handle: ".modal-header"
+        });
+</script> 
+
 </body>
 </html>

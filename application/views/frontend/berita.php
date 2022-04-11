@@ -1,16 +1,17 @@
 <?php include 'komponen/header.php'; include 'komponen/navbar.php' ?>
 
-<section class="page-header">
+<section class="page-header"
+ style="background: url(<?= base_url('assets/frontend/images/bg-berita.jpeg')?>);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-8">
                 <div class="title-block">
-                    <h1>Blog Grid</h1>
+                    <h1>Berita</h1>
                     <ul class="header-bradcrumb justify-content-center">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="<?= base_url()?>">Home</a>
                         </li>
-                        <li class="active" aria-current="page">blog</li>
+                        <li class="active" aria-current="page">Berita</li>
                     </ul>
                 </div>
             </div>
