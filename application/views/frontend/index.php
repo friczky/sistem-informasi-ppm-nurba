@@ -8,8 +8,8 @@
             <div class="col-md-12 col-xl-6 col-lg-6">
                 <div class="banner-content ">
                     <span class="subheading">Assalamualaikum Warahmatulahi Wabarokatuh.</span>
-                    <h1>Kulian sambil Mondok di PPM Nur Baiturrahman</h1>
-                    <p class="mb-40"> Mendapatkan Ilmu dunia dan Akhirat secara bersama ? Tentu bisa dong , Mari bergabung di Pondok Pesantren Nur Baiturrahman</p>
+                    <h1>Kuliah sambil Mondok di PPM Nur Baiturrahman</h1>
+                    <p class="mb-40">Insya allah Mendapatkan Ilmu dunia dan Akhirat secara bersamaan.</p>
 
                     <div class="btn-container">
                         <a href="<?= base_url()?>tentang" class="btn btn-main rounded">Tentang PPM</a>
@@ -56,7 +56,7 @@
                             <div class="count">
                                 <span class="counter h2"><?= $this->db->count_all('tb_kajian')?></span>
                             </div>
-                            <p>Materi Yang Kajian</p>
+                            <p>Materi Yang di Kaji</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
             <div class="col-xl-8">
                 <div class="section-heading ">
                     <h2 class="font-lg">Fasilitas PPM NUR Baiturrahman</h2>
-                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam</p>
+                    <!-- <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam</p> -->
                 </div>
             </div>
         </div>
@@ -120,7 +120,7 @@
                             <div class="step-number bg-1">01</div>
                             <div class="step-text">
                                 <h5>Kamar</h5>
-                                <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
+                                <p>Terdapat 20 Kamar yang dapat berisi 2 santri perkamar.</p>
                             </div>
                         </div>
                     </div>
@@ -129,8 +129,8 @@
                         <div class="step-item">
                             <div class="step-number bg-2">02</div>
                             <div class="step-text">
-                                <h5>Lemari</h5>
-                                <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
+                                <h5>Masjid</h5>
+                                <p>Tepat di depan asrama terdapat Masjid Baiturrahman dan juga sebagai tempat untuk mengaji.</p>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                             <div class="step-number bg-3">03</div>
                             <div class="step-text">
                                 <h5>Wi-Fi </h5>
-                                <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
+                                <p>Wi-fi yang memadai untuk kebutuhan kuliah online maupun untuk belajar online lainnya.</p>
                             </div>
                         </div>
                     </div>
@@ -149,8 +149,8 @@
                         <div class="step-item">
                             <div class="step-number bg-1">04</div>
                             <div class="step-text">
-                                <h5>Toilet 8 Pintu</h5>
-                                <p>Lorem ipsum dolor seat ameat dui too consecteture elite adipaising.</p>
+                                <h5>Kebersihan</h5>
+                                <p>Lingkungan yang sehat dan selalu menjaga kebersihan.</p>
                             </div>
                         </div>
                     </div>
@@ -178,7 +178,7 @@
             <div class="col-xl-8">
                 <div class="section-heading mb-70 text-center">
                     <h2 class="font-lg">Berita Terbaru</h2>
-                    <p>Discover Your Perfect Program In Our Courses.</p>
+                    <p>Berita mengenai pondok maupun ilmu lainnya.</p>
                 </div>
             </div>
         </div>
@@ -197,11 +197,11 @@
 
                     <div class="course-content">
                         <div class="rating mb-10">
+                            <!-- <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i> -->
 
                             <!-- <span>3.9 (30 reviews)</span> -->
                         </div>
@@ -215,6 +215,9 @@
              </div>
             <!-- COURSE END -->
 			<?php } ?>
+			<div class="text-center text-lg-center">
+                    <a href="<?= base_url()?>berita" class="btn btn-main-outline rounded">Semua Berita <i class="fa fa-angle-right"></i></a>
+            </div>
 
         </div>
     </div>
@@ -230,8 +233,8 @@
         <div class="row justify-content-center">
             <div class="col-xl-8">
                 <div class="section-heading mb-50 text-center">
-                    <h2 class="font-lg">Transform Your Life </h2>
-                    <p>Discover Your Perfect Program In Our Courses.</p>
+                    <h2 class="font-lg">Kembangkan Ilmu </h2>
+                    <p>Kita belajar bersama dan bertumbuh bersama.</p>
                 </div>
             </div>
         </div>
@@ -243,8 +246,8 @@
                         <i class="flaticon-teacher"></i>
                     </div>
                     <div class="feature-text">
-                        <h4>Expert Teacher</h4>
-                        <p>Develop skills for career of various majors including computer</p>
+                        <h4>Ustadz Berpengalaman</h4>
+                        <p>Kita memiliki ustadz yang berpengalaman dan telah menempuh pendidikan yang tinggi.</p>
                     </div>
                 </div>
             </div>
@@ -254,8 +257,8 @@
                         <i class="flaticon-layer"></i>
                     </div>
                     <div class="feature-text">
-                        <h4>Self Development</h4>
-                        <p>Develop skills for career of various majors including computer.</p>
+                        <h4>Pengembangan Diri</h4>
+                        <p>Kita sama-sama belajar dan berkembang disini untuk mencapai tujuan dunia dan akhirat yang baik.</p>
                     </div>
                 </div>
             </div>
@@ -265,8 +268,8 @@
                         <i class="flaticon-video-camera"></i>
                     </div>
                     <div class="feature-text">
-                        <h4>Remote Learning</h4>
-                        <p>Develop skills for career of various majors including language</p>
+                        <h4>Belajar Online</h4>
+                        <p>Beberapa ustadz berada didaerah yang cukup jauh sehingga kita akan mengaji secara online.</p>
                     </div>
                 </div>
             </div>
@@ -276,8 +279,8 @@
                         <i class="flaticon-lifesaver"></i>
                     </div>
                     <div class="feature-text">
-                        <h4>Life Time Support</h4>
-                        <p>Develop skills for career of various majors including language  </p>
+                        <h4>Saling Support </h4>
+                        <p>Untuk kebaikan bersama tentunya kita akan saling support dan membantu apapun kebutuhannya.  </p>
                     </div>
                 </div>
             </div>
@@ -341,7 +344,7 @@
             <div class="col-xl-6">
                 <div class="section-heading text-center mb-50">
                     <h2 class="font-lg">Qoutes Santri</h2>
-                    <p>Discover Your Perfect Program In Our Courses.</p>
+                    <p>Kata-Kata Motivasi dari Mahasantri.</p>
                 </div>
             </div>
         </div>
@@ -467,9 +470,9 @@
                         </div>
                         <div class="col-xl-6 col-lg-6">
                             <div class="cta-content ps-lg-4">
-                                <span class="subheading mb-10">Not sure where to start?</span>
-                                <h2 class="mb-20"> Want to know Special Offers & Updates of new courses?</h2>
-                                <a href="#" class="btn btn-main rounded"> Join NOw</a>
+                                <span class="subheading mb-10">Yakin tidak mau gabung?</span>
+                                <h2 class="mb-20"> Ayo Berkembang dan Bertumbuh berasma  di PPM NUR BAITURRAHMAN.</h2>
+                                <a href="#" class="btn btn-main rounded"> Ingin Gabung</a>
                             </div>
                         </div>
                     </div>

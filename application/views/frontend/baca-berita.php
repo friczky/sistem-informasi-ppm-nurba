@@ -39,12 +39,12 @@
                     <div class="single-post-content">
                         <div class="post-meta">
                             <span class="post-author">by
-                            <?php $user = $this->db->where('id_pengguna',$baca['id_user'])->get('tb_pengguna')->row_array(); if ($user > 1){ echo $user['nama']; } else { echo "Anonymous" ;}?>
+                            <?php $user = $this->db->where('id_pengguna',$baca['id_user'])->get('tb_pengguna')->row_array(); if ($user > 1){ echo $user['nama']; } else { echo "Admin" ;}?>
                             </span>
                             <span class="post-date">
                                 <i class="fa fa-calendar-alt mr-2"></i><?= $baca['waktu_buat']?></span>
                             <span class="post-comments">
-                                <i class="far fa-comments"></i>15 Comments</span>
+                                <i class="far fa-comments"></i><?= $this->db->where('id_berita',$baca['id_berita'])->count_all_results('tb_komentar'); ?> Komentar</span>
                         </div>
                         <?= $baca['konten']?>
                     </div>
@@ -54,12 +54,11 @@
                     <div
                         class="blog-footer-meta d-md-flex justify-content-between align-items-center">
                         <div class="post-tags mb-4 mb-md-0">
-                            <a href="#">Design</a>
-                            <a href="#">Development</a>
-                            <a href="#">UX</a>
+							<?php $data = $this->db->where('id_kategori',$baca['id_kategori'])->get('tb_kategori')->row_array() ;?>	
+                            <a href="<?= base_url('kategori/')?><?= $data['id_kategori']?>/<?= $data['kategori'];?>"><?= $data['kategori'];?></a>
                         </div>
 
-                        <div class="article-share d-md-flex align-items-center">
+                        <!-- <div class="article-share d-md-flex align-items-center">
                             <h6>Share:
                             </h6>
                             <ul class="social-icon">
@@ -89,85 +88,44 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
-
+					<div class=""></div>
                     <!-- Author -->
                     <div class="post-single-author mb-5">
-                        <div class="author-img">
-                            <img src="assets/images/blog/author.jpg" alt="" class="img-fluid">
+                        <div class="author-img ">
+                            <img src="<?= base_url()?>uploads/sistem/user.png" alt="" class="img-fluid">
                         </div>
                         <div class="author-info">
-                            <h4>Mikel John</h4>
-                            <span>Web Developer</span>
-                            <p>Lorem ipsum dolor sit amet Officia enim nihil accusamus error perspiciatis
-                                nam quas distinctio nobis, quibusdam mollitia totam ipsam obcaecati, iusto alias
-                                reprehenderit tempora placeat voluptates eligendi.</p>
+                            <h4><?php $data= $this->db->where('id_pengguna',$baca['id_user'])->get('tb_pengguna')->row_array(); echo $data['nama']?></h4>
+                            <p>MAHASANTRI</p>
                         </div>
                     </div>
 
                     <!-- Comment start -->
                     <div class="comments common-form">
-                        <h3 class="title">2 Comments</h3>
+                        <h3 class="title"><?= $this->db->where('id_berita',$baca['id_berita'])->count_all_results('tb_komentar'); ?> Komentar</h3>
+						<?php $komentar = $this->db->where('id_berita',$baca['id_berita'])->get('tb_komentar')->result(); foreach ($komentar as $komen) { ?>
                         <div class="comment-box">
                             <div class="comment-avatar">
                                 <img src="assets/images/blog/user.jpg" class="me-3" alt="...">
                             </div>
                             <div class="comment-info">
-                                <h5>Harish John</h5>
-                                <span>17 Feb 2021</span>
+                                <h5><?= $komentar->nama?></h5>
+                                <span><?= $komentar->waktu_buat?></span>
                                 <p>
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                    sollicitudin. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                                    congue felis in faucibus.
+                                    <?= $komentar->komentar?>
                                 </p>
-                                <a class="reply-link" href="#">
-                                    <i class="fas fa-reply-all"></i>Reply</a>
                             </div>
                         </div>
-
-                        <div class="has-children">
-                            <div class="comment-box">
-                                <div class="comment-avatar">
-                                    <img src="assets/images/blog/user.jpg" class="me-3" alt="...">
-                                </div>
-                                <div class="comment-info">
-                                    <h5>Harish John</h5>
-                                    <span>17 Feb 2021</span>
-                                    <p>
-                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                        sollicitudin. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                                        congue felis in faucibus.
-                                    </p>
-                                    <a class="reply-link" href="#">
-                                        <i class="fas fa-reply-all"></i>Reply</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment-box">
-                            <div class="comment-avatar">
-                                <img src="assets/images/blog/user.jpg" class="me-3" alt="...">
-                            </div>
-                            <div class="comment-info">
-                                <h5>Harish John
-                                </h5>
-                                <span>17 Feb 2021</span>
-                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                    sollicitudin. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                                    congue felis in faucibus.
-                                </p>
-                                <a class="reply-link" href="#">
-                                    <i class="fas fa-reply-all"></i>Reply</a>
-                            </div>
-                        </div>
+						<?php } ?>
                     </div>
 
                     <!-- Comment Form -->
                     <div class="comments-form common-form mt-4 ">
-                        <h3 class="titile">Write a Review
+                        <h3 class="titile">Tulis Komentar.
                         </h3>
-                        <p>Your email address will not be published. Required fields are marked *</p>
+                        <p>Emailmu tidak akan kami publish.*</p>
                         <form action="#" class="comment_form">
                             <div class="row form-row">
                                 <div class="col-lg-6">
@@ -178,11 +136,6 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Website">
                                     </div>
                                 </div>
 

@@ -61,7 +61,7 @@ $this->load->view('backend/komponen/sidebar-admin');
 												}
 												?>
 										</td>
-										<td><?= $p->foto?></td>
+										<td><img src="<?= base_url()?>uploads/pengguna/<?= $p->foto?>" width="50px" alt=""></td>
 										<td>
 										<a href="<?= base_url()?>dashboard/pengguna/edit/<?= $p->id_pengguna?>" class="btn btn-primary">Edit</a>
 										<a href="<?= base_url()?>dashboard/pungguna/hapus/1" class="btn btn-danger">Hapus</a>

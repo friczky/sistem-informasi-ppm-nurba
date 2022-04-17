@@ -227,7 +227,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url()?>dashboard/sistem" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Kustomisasi</p>
+                                <p>Tentang</p>
                             </a>
                         </li>
                     </ul>

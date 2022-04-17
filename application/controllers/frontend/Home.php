@@ -65,11 +65,13 @@ class Home extends CI_Controller {
 	public function kontak()
 	{
 		$data['title']	= 'Kontak';
+		$data['tentang'] = $this->db->get('tb_sistem')->row_array();
 		$this->load->view('frontend/kontak',$data);
 	}
 
 	public function tentang(){
 		$data['title']	= 'Tentang';
+		$data['tentang'] = $this->db->get('tb_sistem')->row_array();
 		$this->load->view('frontend/tentang',$data);
 	}
 }

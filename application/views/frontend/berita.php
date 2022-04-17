@@ -32,7 +32,7 @@
                             </div>
                             <div class="blog-content">
                                 <div class="post-meta">
-                                    <span class="post-author">by <?php $user = $this->db->where('id_pengguna',$b->id_user)->get('tb_pengguna')->row_array(); if ($user > 1){ echo $user['nama']; } else { echo "Anonymous" ;}?></span>
+                                    <span class="post-author">by <?php $user = $this->db->where('id_pengguna',$b->id_user)->get('tb_pengguna')->row_array(); if ($user > 1){ echo $user['nama']; } else { echo "Admin" ;}?></span>
                                     <span class="post-date">
                                         <i class="fa fa-calendar-alt mr-2"></i><?= $b->waktu_buat?></span>
                                     <span class="post-comments">
@@ -50,7 +50,7 @@
 					<?php }?>
                 </div>
 
-                <nav class="blog-page-navigation">
+                <!-- <nav class="blog-page-navigation">
                     <ul class="pagination">
                         <li class="pagination-arrow">
                             <a href="#">
@@ -72,7 +72,7 @@
                             </a>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
             <div class="col-lg-4 col-xl-4">
                

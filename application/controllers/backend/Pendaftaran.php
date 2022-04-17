@@ -11,7 +11,7 @@ class Pendaftaran extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data Pendaftaran';
-		$data['pendaftar'] = $this->db->order_by('id_pendaftar','desc')->get('tb_pendaftaran')->result(); 
+		$data['pendaftar'] = $this->db->from('tb_santri')->join('tb_pendaftaran','tb_santri.id_pendaftar = tb_pendaftaran.id_pendaftar')->where('tb_pendaftaran.status_pendaftaran',0)->get()->result();
 		$this->load->view('backend/pendaftaran/index',$data);
 	}
 

@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="header-btn text-center text-lg-end">
-                           <a href="#"> <i class="fa fa-user-alt"></i> Login/Register</a>
+                           <a href="<?= base_url('login')?>" target="_blank"> <i class="fa fa-user-alt"></i> Login/Register</a>
                         </div>
                    </div>
                 </div>
@@ -42,7 +42,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <div class="site-logo">
                     <a href="<?= base_url()?>">
-                        <img src="<?= base_url()?>assets/frontend/images/logo.png" alt="" class="img-fluid" />
+                        <img src="<?= base_url()?>uploads/sistem/<?php $data = $this->db->get('tb_sistem')->row_array(); echo $data['logo']?> " alt="" class="img-fluid" />
                     </a>
                 </div>
 

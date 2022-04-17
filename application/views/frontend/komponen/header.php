@@ -5,7 +5,7 @@
   <meta name="description" content="Website Official PPM Nur Baiturrahman">
   <meta name="author" content="dreambuzz">
 
-  <title><?= strtoupper($title) ?> - PPM NURBAITURRAHMAN</title>
+  <title><?= strtoupper($title) ?> - <?php $data =$this->db->get('tb_sistem')->row_array(); echo $data['nama_web']?></title>
 
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">

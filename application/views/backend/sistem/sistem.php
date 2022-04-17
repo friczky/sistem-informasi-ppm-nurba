@@ -64,6 +64,12 @@ $this->load->view('backend/komponen/sidebar-admin');
                         </div>
                     </div>
 					<div class="form-group row">
+						<label for="" class="col-sm-2 col-form-label"> Tentang</label>
+						<div class="col-sm-10">
+							<textarea name="tentang" class="form-control" id="summernote" cols="30" rows="10" required><?= $sistem['tentang']?></textarea>
+						</div>
+					</div>
+					<div class="form-group row">
                         <label for="" name="" class="col-sm-2 col-form-label">Logo</label>
                         <div class="col-sm-10">
                             <input type="file" name="logo" class="form-control" value="<?= $sistem['logo']?>" id="">

@@ -34,7 +34,7 @@
         <ul>
             <?php foreach($kategori as $k) {?>
             <li class="cat-item">
-                <a href="#"><?= $k->kategori?></a>(<?= $jumlah = $this->db->where('id_kategori',$k->id_kategori)->count_all_results('tb_berita')?>)</li>
+                <a href="<?= base_url()?>kategori/<?= $k->id_kategori?>/<?= $k->kategori?>"><?= $k->kategori?></a>(<?= $jumlah = $this->db->where('id_kategori',$k->id_kategori)->count_all_results('tb_berita')?>)</li>
             <?php }?>
         </ul>
     </div>

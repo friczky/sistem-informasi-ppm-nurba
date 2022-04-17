@@ -48,13 +48,28 @@ class Auth extends CI_Controller {
     }
 
     public function logout(){
-        
         $this->session->sess_destroy();
         $this->session->set_flashdata('alert','<div class="alert alert-warning">Berhasil logout !</div>');
         redirect(base_url('login'));
         
     }
-        
+
+	public function reset_password(){
+		if(isset($_POST['reset'])) {
+			$data = [
+				'email' 	=> $this->input->post('email'),
+				'token'		=> random_bytes(20),
+			];
+		}else{   
+			$from = "friczky@friczky.com";    
+			$to = "friczky@gmail.com";    
+			$subject = "Checking PHP mail";    
+			$message = "PHP mail berjalan dengan baik";   
+			$headers = "From:" . $from;    
+			mail($to,$subject,$message, $headers);    
+			echo "Pesan email sudah terkirim.";
+		}
+	}
 }
         
     /* End of file  Login.php */
