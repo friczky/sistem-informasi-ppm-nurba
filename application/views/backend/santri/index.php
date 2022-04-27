@@ -34,7 +34,10 @@ $this->load->view('backend/komponen/sidebar-admin');
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Semua Data Santri.</h3>
+                    <div class="col-sm-12 row">
+						<div class="col-sm-6"><h3 class="card-title">Semua Data Santri.</h3></div>
+						<div class="col-sm-6 text-right"><a href="" class="btn btn-primary"><i class="fa fa-upload"></i> &nbsp; Import Data</a> <a href="" class="btn btn-danger"><i class="fa fa-trash"></i> &nbsp; Hapus Data</a></div>
+					</div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

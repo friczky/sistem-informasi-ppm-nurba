@@ -34,8 +34,10 @@
   <link rel="stylesheet" href="<?= base_url()?>assets/backend/plugins/summernote/summernote-bs4.min.css">
 </head>
 
-<?php if($this->session->userdata['role'] != '1'){
-			$this->session->set_flashdata('alert', '<div class="alert alert-danger alert-dismissible">Anda tidak memiliki akses!</div>');
+<?php 
+if(!$this->session->userdata['role'] == 1 ){
+			$this->session->set_flashdata('alert', '<div class="alert alert-danger alert-dismissible">Silahkan Login Terlebih Dahulu!</div>');
 			redirect(base_url('login'));
 }else{
-}?>
+}
+?>

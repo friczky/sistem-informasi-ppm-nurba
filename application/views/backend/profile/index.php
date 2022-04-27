@@ -40,24 +40,20 @@ $this->load->view('backend/komponen/sidebar-admin');
                             <div class="text-center">
                                 <img
                                     class="profile-user-img img-fluid img-circle"
-                                    src="<?= base_url()?>assets/backend/dist/img/user4-128x128.jpg"
+                                    src="<?= base_url()?>uploads/pengguna/<?= $user['foto']?>"
                                     alt="User profile picture">
                             </div>
 
-                            <h3 class="profile-username text-center">Fadilah Riczky</h3>
+                            <h3 class="profile-username text-center"><?= $user['nama']?></h3>
 
-                            <p class="text-muted text-center">Web Developer</p>
+                            <p class="text-muted text-center">Administrator</p>
 
-                            <ul class="list-group list-group-unbordered mb-3">
+                            <ul class="list-group  mb-3">
                                 <li class="list-group-item">
                                     <b>Artikel</b>
-                                    <a class="float-right">1,322</a>
+                                    <a class="float-right"><?= $artikel ?></a>
                                 </li>
                             </ul>
-
-                            <a href="#" class="btn btn-primary btn-block">
-                                <b>Lihat</b>
-                            </a>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -80,13 +76,14 @@ $this->load->view('backend/komponen/sidebar-admin');
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+							<?= $this->session->flashdata('alert');?>
                             <div class="tab-content">
                                 <div class="active tab-pane" id="biodata">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" action="<?= base_url()?>backend/profile/update" method="post" enctype="multipart/form-data">
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="nama" id="inputName" value="">
+                                                <input type="text" class="form-control" name="nama" id="inputName" value="<?= $user['nama']?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -97,13 +94,13 @@ $this->load->view('backend/komponen/sidebar-admin');
                                                     class="form-control"
                                                     name="username"
                                                     id="inputEmail"
-                                                    value="">
+                                                    value="<?= $user['username']?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputName2" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName2" name="email" value="">
+                                                <input type="email" class="form-control" id="inputName2" name="email" value="<?= $user['email']?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -121,15 +118,21 @@ $this->load->view('backend/komponen/sidebar-admin');
                                 </div>
                                 <!-- /.tab-pane -->
                                 <div class="tab-pane" id="password">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" action="<?= base_url()?>backend/profile/password" method="post">
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
                                             <div class="col-sm-10">
-                                                <input
-                                                    type="new_password"
+												<input
+                                                    type="password"
                                                     class="form-control"
                                                     id="inputName"
-                                                    placeholder="Masukan Password Baru">
+                                                    placeholder="Masukan Password Lama"  name="password_lama">	
+													<br>
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    id="inputName"
+                                                    placeholder="Masukan Password Baru" name="password_baru">
                                             </div>
                                         </div>
                                         <div class="form-group row">

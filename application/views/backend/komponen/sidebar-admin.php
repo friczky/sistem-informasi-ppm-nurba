@@ -2,8 +2,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?= base_url()?>" class="brand-link" target="_blank">
+	<?php $data = $this->db->get('tb_sistem')->row_array()?>
         <img
-            src="<?= base_url()?>assets/backend/dist/img/AdminLTELogo.png"
+            src="<?= base_url()?>uploads/sistem/<?= $data['logo']?>"
             alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3"
             style="opacity: .8">
@@ -11,17 +12,18 @@
     </a>
 
     <!-- Sidebar -->
+	<?php $user = $this->db->where('id_pengguna',$this->session->userdata['id'])->get('tb_pengguna')->row_array();?>
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img
-                    src="<?= base_url()?>assets/backend/dist/img/user2-160x160.jpg"
+                    src="<?= base_url()?>uploads/pengguna/<?= $user['foto']?>"
                     class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block"><?= $user['nama']?></a>
             </div>
         </div>
 
@@ -108,6 +110,12 @@
                             <a href="<?= base_url()?>dashboard/santri/" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Santri</p>
+                            </a>
+                        </li>
+						<li class="nav-item">
+                            <a href="<?= base_url()?>dashboard/santri/kampus" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Kampus</p>
                             </a>
                         </li>
                     </ul>

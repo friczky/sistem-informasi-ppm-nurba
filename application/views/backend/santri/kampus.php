@@ -44,22 +44,35 @@ $this->load->view('backend/komponen/sidebar-admin');
               </button>
             </div>
           </div>
-		  <form action="<?= base_url()?>backend/berita/tambah" method="post">
+	
           <!-- /.card-header -->
           <div class="card-body">
+						<?= $this->session->flashdata('sukses')?>
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <label>Judul</label>
-                  <input type="text" class="form-control" name="judul" placeholder="Masukan Judul Berita" required>
-				  <br>
-				  <label>Keterangan</label>
-                  <input type="text" class="form-control" name="keterangan" placeholder="Masukan Keterangan" required>
-				  <br>
-				  <input type="submit" class="btn btn-primary" value="Simpan">
+									<form action="<?= base_url()?>backend/santri/kampus" method="post" enctype="multipart/form-data">
+                  <label>Nama Kampus</label>
+                  <input type="text" class="form-control" name="nama_kampus" placeholder="Masukan Nama Kampus" value="<?= $this->session->flashdata('nama_kampus')?>" required>
+										<br>
+										<label>Logo Kampus</label>
+                  <input type="file" class="form-control" name="logo_kampus" >
+									<input type="hidden" name="logo_lama" value="<?= $this->session->flashdata('logo_lama')?>">
+									<input type="hidden" name="id_kampus"  value="<?= $this->session->flashdata('id_kampus')?>">
+										<br>
+									<?php 
+									if ($this->session->flashdata('id_kampus')) {
+										echo '<input type="submit" class="btn btn-primary" name="update" value="Perbahrui">';
+									} else	{
+										echo '<input type="submit" class="btn btn-primary" name="simpan" value="Tambah">';
+									}
+
+									 ?>
+									</form> 
                 </div>
                 <!-- /.form-group -->
               </div>
+
               <!-- /.col -->
               <div class="col-md-9">
                 <div class="form-group">
@@ -67,25 +80,30 @@ $this->load->view('backend/komponen/sidebar-admin');
                   <table id="example1" class="table table-bordered table-striped">
 					  <thead>
 					  <th>No.</th>
-					  <th>Kategori</th>
-					  <th>Keterangan</th>
+					  <th>Nama Kampus</th>
+					  <th>Logo</th>
 					  <th>Aksi</th>
 					  </thead>
+						<?php $no =1 ; foreach ($kampus as $key => $k) { ?>
 					  <tr>
-						  <td>1.</td>
-						  <td>Test</td>
-						  <td>Ini keterangan</td>
+						<form action="<?= base_url()?>backend/santri/kampus" method="post">
+						  <td><?= $no++?></td>
+						  <td><?= $k->nama_kampus?></td>
+						  <td><img src="<?= base_url()?>uploads/kampus/<?= $k->logo_kampus?>" width="50px" alt=""></td>
 						  <td>
-						  <a href="<?= base_url()?>dashboard/berita/edit/1" class="btn btn-primary">Edit</a>
-						  <a href="<?= base_url()?>dashboard/berita/hapus/1" class="btn btn-danger">Hapus</a>
+							<input type="hidden" name="id_kampus" value="<?= $k->id_kampus?>">
+						  <input type="submit" class="btn btn-primary" name="edit" value="Edit">
+							<input type="submit" class="btn btn-danger" name="hapus" value="Hapus">
 						  </td>
+							</form>
 					  </tr>
+						<?php } ?>
 				  </table>
                 </div>
               </div>   
             </div>
           </div>
-		  </form>
+		  
           <!-- /.card-body -->
           <div class="card-footer">
           </div>
@@ -95,7 +113,6 @@ $this->load->view('backend/komponen/sidebar-admin');
 	</section>
  </div>
  
-
 
 
 <?php 

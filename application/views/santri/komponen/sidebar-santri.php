@@ -2,8 +2,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
     <!-- Brand Logo -->
     <a href="<?= base_url()?>" class="brand-link" target="_blank">
+	<?php $data = $this->db->get('tb_sistem')->row_array()?>
         <img
-            src="<?= base_url()?>assets/backend/dist/img/AdminLTELogo.png"
+            src="<?= base_url()?>uploads/sistem/<?= $data['logo']?>"
             alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3"
             style="opacity: .8">
@@ -11,6 +12,7 @@
     </a>
 
     <!-- Sidebar -->
+	<?php $user = $this->db->where('id_pengguna',$this->session->userdata['id'])->get('tb_pengguna')->row_array();?>
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -21,7 +23,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block"><?= $user['nama']?></a>
             </div>
         </div>
 
@@ -64,7 +66,7 @@
                         <p>
                             Man Artikel
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-primary right"><?= $this->db->count_all('tb_berita')?></span>
+                            <span class="badge badge-primary right"><?= $this->db->where('id_user',$this->session->userdata('id'))->count_all_results('tb_berita')?></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -121,7 +123,7 @@
                 </li>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url()?>dashboard/logout" class="nav-link">
+                <a href="<?= base_url()?>logout" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     <p>
                         Logout

@@ -11,7 +11,7 @@ class Berita extends CI_Controller {
 
 	public function index()
 	{
-		$id = $this->session->userdata('id_user');
+		$id = $this->session->userdata('id');
 		$data['title'] = 'Data Berita';
 		$data['berita'] = $this->db->order_by('id_berita','desc')->where('id_user',$id)->from('tb_berita')->join('tb_kategori','tb_kategori.id_kategori = tb_berita.id_kategori')->get()->result();
 		$this->load->view('santri/berita/index',$data);
@@ -45,6 +45,7 @@ class Berita extends CI_Controller {
             'id_kategori'	=> $this->input->post('id_kategori'),
             'konten'		=> $this->input->post('konten'),
             'foto'          => $foto,
+			'id_user'		=> $this->input->post('id_user'),
             'waktu_buat'      => date('Y-m-d H:i:s')
         ];
 		

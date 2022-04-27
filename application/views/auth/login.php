@@ -24,6 +24,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Masuk untuk mengakses akun anda.</p>
+			<?= $this->session->flashdata('alert'); ?>
 
       <form action="<?= base_url('backend/auth/login')?>" method="post">
         <div class="input-group mb-3">

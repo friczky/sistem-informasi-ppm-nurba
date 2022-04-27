@@ -37,3 +37,9 @@
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 </head>
+
+<?php if($this->session->userdata['role'] != '0' ){
+			$this->session->set_flashdata('alert', '<div class="alert alert-danger alert-dismissible">Silahkan Login Terlebih Dahulu!</div>');
+			redirect(base_url('login'));
+}else{
+}?>

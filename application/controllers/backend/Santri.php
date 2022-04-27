@@ -11,7 +11,7 @@ class Santri extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data Santri';
-		$data['santri'] = $this->db->order_by('id_santri','desc')->get('tb_santri')->result(); 
+		$data['santri'] = $this->db->from('tb_santri')->join('tb_pendaftaran','tb_santri.id_pendaftar = tb_pendaftaran.id_pendaftar')->where('tb_pendaftaran.status_pendaftaran',1)->get()->result(); 
 		$this->load->view('backend/santri/index',$data);
 	}
 
@@ -32,7 +32,7 @@ class Santri extends CI_Controller {
         }
 		$id_santri = $this->input->post('id_santri');
         $data = [
-            'nama'			=> $this->input->post('nama'),
+            'nama_santri'	=> $this->input->post('nama'),
 			'nama_wali'		=> $this->input->post('nama_wali'),
 			'telpon_wali'	=> $this->input->post('telpon_wali'),
             'telpon'		=> $this->input->post('telpon'),
@@ -70,13 +70,13 @@ class Santri extends CI_Controller {
             $this->upload->display_errors();
         }
         $data = [
-			'nama'			=> $this->input->post('nama'),
+			'nama_santri'	=> $this->input->post('nama'),
 			'nama_wali'		=> $this->input->post('nama_wali'),
 			'telpon_wali'	=> $this->input->post('telpon_wali'),
             'telpon'		=> $this->input->post('telpon'),
             'tempat_lahir'	=> $this->input->post('tempat_lahir'),
             'tanggal_lahir'	=> $this->input->post('tanggal_lahir'),
-			'kampus'		=> $this->input->post('kampus'),
+			'id_kampus'		=> $this->input->post('kampus'),
 			'angkatan'		=> $this->input->post('angkatan'),
             'waktu_update'	=> date('Y-m-d H:i:s')
         ];
@@ -84,6 +84,68 @@ class Santri extends CI_Controller {
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Santri !</div>');
         redirect(base_url('dashboard/santri'));
     }
+
+	public function kampus(){
+		if (isset($_POST['simpan'])){
+			$config['allowed_types'] = 'jpg|png|gif';
+			$config['max_size'] = '0';
+			$config['upload_path'] = './uploads/kampus/';
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('logo_kampus')) {
+				$foto = $this->upload->data('file_name');
+			} else {
+				$this->upload->display_errors();
+			}
+			$data = [
+				'nama_kampus' => $this->input->post('nama_kampus'),
+				'logo_kampus' => $foto,
+			];
+			$this->db->insert('tb_kampus',$data);
+			$this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil menambah kampus !</div>');
+			redirect(base_url('dashboard/santri/kampus'));
+		} elseif (isset($_POST['edit'])){
+			$id_kampus = $this->input->post('id_kampus');
+			$row = $this->db->where('id_kampus',$id_kampus)->get('tb_kampus')->row_array();
+			$kampus = $row['nama_kampus'];
+			$logo = $row['logo_lama'];
+			$this->session->set_flashdata('nama_kampus',$kampus);
+			$this->session->set_flashdata('logo_lama',$logo);
+			$this->session->set_flashdata(	'id_kampus',$id_kampus);
+			redirect(base_url('dashboard/santri/kampus'));
+		}elseif (isset($_POST['update'])){
+			$config['allowed_types'] = 'jpg|png|gif';
+			$config['max_size'] = '0';
+			$config['upload_path'] = './uploads/kampus/';
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('logo_kampus')) {
+				$fotolama = $this->input->post('logo_lama');
+				if ($fotolama != 'default.jpg') {
+					unlink(FCPATH . './uploads/kampus/' . $fotolama);
+				}
+				$fotobaru = $this->upload->data('file_name');
+				$this->db->set('logo_kampus', $fotobaru);
+			} else {
+				$this->upload->display_errors();
+			}
+			$id_kampus = $this->input->post('id_kampus');
+			$data = [
+				'nama_kampus' => $this->input->post('nama_kampus'),
+			];
+			$this->db->where('id_kampus',$id_kampus)->update('tb_kampus',$data);
+			$this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui kampus !</div>');
+			redirect(base_url('dashboard/santri/kampus'));
+		} elseif (isset($_POST['hapus'])){
+			$id = $this->input->post('id_kampus');
+			$this->db->where('id_kampus',$id)->delete('tb_kampus');
+			$this->session->set_flashdata('sukses', '<div class="alert alert-danger">Berhasil menghapus kampus !</div>');
+			redirect(base_url('dashboard/santri/kampus'));
+		}else {
+			$data['title'] = 'Data Kampus';
+			$data['kampus'] = $this->db->order_by('id_kampus','DESC')->get('tb_kampus')->result();
+			$this->load->view('backend/santri/kampus',$data);
+		}
+		
+	}
 
 
 	public function hapus($id_santri){

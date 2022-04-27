@@ -3,7 +3,8 @@
 $this->load->view('santri/komponen/header');
 $this->load->view('santri/komponen/navbar');
 $this->load->view('santri/komponen/sidebar-santri');
-
+$id = $this->session->userdata['id'];
+$data = $this->db->where('id_pengguna',$id)->get('tb_pengguna')->row_array();
 ?>
 
 <!-- Konten -->
@@ -35,16 +36,16 @@ $this->load->view('santri/komponen/sidebar-santri');
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" src="<?= base_url()?>assets/backend/dist/img/user4-128x128.jpg" alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle" src="<?= base_url()?>uploads/pengguna/<?= $data['foto']?>" alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Fadilah Riczky</h3>
+                <h3 class="profile-username text-center"><?= $data['nama']?></h3>
 
-                <p class="text-muted text-center">Web Developer</p>
+                <p class="text-muted text-center"></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Artikel</b> <a class="float-right">1,322</a>
+                    <b>Artikel</b> <a class="float-right"><?= $this->db->where('id_user',$id)->count_all_results('tb_berita')?></a>
                   </li>
                 </ul>
 
@@ -73,25 +74,26 @@ $this->load->view('santri/komponen/sidebar-santri');
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="nama" id="inputName" value="">
+                          <input type="text" class="form-control" name="nama" id="inputName" value="<?= $data['nama']?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="username" id="inputEmail" value="">
+                          <input type="text" class="form-control" name="username" id="inputEmail" value="<?= $data['username']?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName2" name="email" value="">
+                          <input type="email" class="form-control" id="inputName2" name="email" value="<?= $data['email']?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputExperience" class="col-sm-2 col-form-label">Foto</label>
                         <div class="col-sm-10">
                           <input type="file" name="foto" class="form-control">
+													<input type="hidden" name="foto_old" value="<?= $data['foto']?>">
                         </div>
                       </div>
                       <div class="form-group row">

@@ -29,6 +29,7 @@ $route['dashboard/berita/edit/(:any)']	= 'backend/berita/edit/$1';
 // santri
 $route['dashboard/santri']				= 'backend/santri';
 $route['dashboard/santri/tambah']		= 'backend/santri/tambah';
+$route['dashboard/santri/kampus']		= 'backend/santri/kampus';
 $route['dashboard/santri/edit/(:any)']	= 'backend/santri/edit/$1';
 
 // ustadz

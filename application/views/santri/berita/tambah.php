@@ -77,6 +77,7 @@ $this->load->view('santri/komponen/sidebar-santri');
 					<div class="form-group">
 						<label for="">Isi Konten</label>
 						<textarea name="konten" class="form-control" id="summernote" cols="30" rows="10" required></textarea>
+						<input type="hidden" name="id_user" value="<?= $this->session->userdata['id']?>">
 					</div>
 
 					<div class="form-group">

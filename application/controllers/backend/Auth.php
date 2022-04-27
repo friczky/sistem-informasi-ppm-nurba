@@ -20,23 +20,15 @@ class Auth extends CI_Controller {
                 $user = $data->row_array();
                 if ($user['role'] == '0') {
 					$data_sess = array(
-						'nama'    		=> $user['nama'],
-						'username'         => $username,
-						'foto'          => $user['foto'],
-						'id'       		=> $user['id'],
-						'role'          => $user['role'],
-						'status'		=> 'login',
+						'id'       		=> $user['id_pengguna'],
+						'role'          => $user['role']
 					);
 					$this->session->set_userdata( $data_sess );
 					redirect(base_url('admin'));
 				} else {
 					$data_sess = array(
-						'nama'    		=> $user['nama'],
-						'username'      => $username,
-						'foto'          => $user['foto'],
-						'id'       		=> $user['id'],
+						'id'       		=> $user['id_pengguna'],
 						'role'          => $user['role'],
-						'status'		=> 'login',
 					);
 					$this->session->set_userdata( $data_sess );
 					redirect(base_url('santri'));
