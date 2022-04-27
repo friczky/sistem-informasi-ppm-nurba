@@ -4,13 +4,14 @@
             <div class="row justify-content-between">
                 <div class="col-xl-8 col-lg-6 col-md-12">
                    <div class="header-contact text-center text-lg-start d-none d-sm-block">
+                       <?php $data = $this->db->where('id_sistem', 1)->get('tb_sistem')->row_array(); ?>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <span class="text-color me-2"><i class="fa fa-phone-alt"></i></span><a href="tel:+(354) 6800 37849"> +(354) 6800 37849</a>
+                                <span class="text-color me-2"><i class="fa fa-phone-alt"></i></span><a href="tel:<?= $data['telpon']?>" > <?= $data['telpon']?></a>
                             </li>
 
                             <li class="list-inline-item">
-                                <span class="text-color me-2"><i class="fa fa-envelope"></i></span><a href="malito:hello@edumel.com"> hello@edumel.com</a>
+                                <span class="text-color me-2"><i class="fa fa-envelope"></i></span><a href="malito:<?= $data['email']?>"> <?= $data['email']?></a>
                             </li>
                         </ul>
                    </div>
@@ -20,11 +21,9 @@
                    <div class="d-sm-flex justify-content-center justify-content-lg-end">
                         <div class="header-socials text-center text-lg-end">
                             <ul class="list-inline">
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li class="list-inline-item"><a href="<?= $data['facebook']?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="<?= $data['instagram']?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="<?= $data['youtube']?>" target="_blank"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
 
