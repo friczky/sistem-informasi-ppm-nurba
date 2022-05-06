@@ -39,6 +39,24 @@ class Auth extends CI_Controller {
         	}
     }
 
+	public function register(){
+		$this->load->view('auth/register');
+	}
+
+	public function store(){
+		$data = [
+			'nama'	=> $this->input->post('nama_lengkap'),
+			'email'	=> $this->input->post('mail'),
+			'username'	=> $this->input->post('uname'),
+			'password'	=> md5($this->input->post('pwd')),
+			'role'	=> '1'
+		];
+
+		$this->db->insert('tb_pengguna', $data);
+		$this->session->set_flashdata('alert','<div class="alert alert-success">Berhasil Daftar, Silahkan Masuk !</div>');
+		redirect(base_url('login'));
+	}
+
     public function logout(){
         $this->session->sess_destroy();
         $this->session->set_flashdata('alert','<div class="alert alert-warning">Berhasil logout !</div>');
