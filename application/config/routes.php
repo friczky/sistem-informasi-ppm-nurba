@@ -25,6 +25,7 @@ $route['logout']						= 'backend/auth/logout';
 $route['dashboard/berita']				= 'backend/berita';
 $route['dashboard/berita/tambah']		= 'backend/berita/tambah';
 $route['dashboard/berita/kategori']		= 'backend/berita/kategori';
+$route['dashboard/berita/komentar']		= 'backend/berita/komentar';
 $route['dashboard/berita/edit/(:any)']	= 'backend/berita/edit/$1';
 
 // santri

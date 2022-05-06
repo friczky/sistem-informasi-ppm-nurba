@@ -120,7 +120,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                                 <div class="tab-pane" id="password">
                                     <form class="form-horizontal" action="<?= base_url()?>backend/profile/password" method="post">
                                         <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
+                                            <label for="inputName" class="col-sm-2 col-form-label">Password</label>
                                             <div class="col-sm-10">
 												<input
                                                     type="password"

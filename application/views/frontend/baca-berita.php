@@ -130,7 +130,7 @@
                             <div class="row form-row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name">
+                                        <input type="text" class="form-control" placeholder="Nama">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -146,13 +146,15 @@
                                             id="msgt"
                                             cols="30"
                                             rows="6"
-                                            placeholder="Comment"
+                                            placeholder="Komentar"
                                             class="form-control"></textarea>
                                     </div>
                                 </div>
+								<input type="hidden" name="id_berita" value="<?= $baca['id_berita']?>">
+								<input type="hidden" name="slug" value="<?= $baca['slug']?>">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <a href="#" class="btn btn-main rounded">Post Comment</a>
+                                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
                                     </div>
                                 </div>
                             </div>

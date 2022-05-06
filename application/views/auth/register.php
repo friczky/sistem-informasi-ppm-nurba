@@ -36,15 +36,15 @@
           </div>
         </div>
 				<div class="input-group mb-3">
-          <input type="text" class="form-control" name="mail" placeholder="Email">
+          <input type="email" class="form-control" name="mail" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="uname" placeholder="Username">
+          <input type="text" class="form-control" name="uname" placeholder="User Name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>

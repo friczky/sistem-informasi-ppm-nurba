@@ -140,4 +140,25 @@ class Berita extends CI_Controller {
         $this->session->set_flashdata('sukses','<div class="alert alert-danger"> Berhasil Menghapus Berita !</div>');
         redirect(base_url('dashboard/berita'));
 	}
+
+	// Komentar Session
+
+	public function komentar(){
+		$data['komentar'] = $this->db->from('tb_komentar')->join('tb_berita','tb_berita.id_berita = tb_komentar.id_berita')->get()->result();
+
+		$this->load->view('backend/berita/komentar');
+	}
+
+	public function store_komentar(){
+		$slug = $this->input->post('slug');
+		$data = [
+			'nama'	=> $this->input->post('nama'),
+			'email'	=> $this->input->post('email'),
+			'komentar' => $this->input->post('komentar'),
+			'id_berita' => $this->input->post('id_berita')
+		];
+		
+		$this->db->insert('tb_komentar',$data);
+		redirect(base_url('baca/'.$slug));
+	}
 }

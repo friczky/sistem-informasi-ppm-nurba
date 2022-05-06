@@ -88,6 +88,12 @@
                                 <p>Kategori</p>
                             </a>
                         </li>
+						<li class="nav-item">
+                            <a href="<?= base_url()?>dashboard/berita/komentar" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Komentar</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
