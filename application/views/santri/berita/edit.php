@@ -45,7 +45,7 @@ $this->load->view('santri/komponen/sidebar-santri');
             </div>
           </div>
           <!-- /.card-header -->
-					<?= form_open_multipart('backend/berita/update')?>
+					<?= form_open_multipart('santri/berita/update')?>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
@@ -72,7 +72,7 @@ $this->load->view('santri/komponen/sidebar-santri');
 					<div class="form-group">
 						<label for="">Thumbnail</label>
 						<input type="file" class="form-control" name="foto" >
-						<input type="hidden" name="foto_old" value="<?= $berita['foto']?>">
+						<input type="hidden" name="foto_old" value="<?= $berita['thumbnail']?>">
 					</div>
 
 					<div class="form-group">

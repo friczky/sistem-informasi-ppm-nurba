@@ -11,7 +11,7 @@ class Berita extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data Berita';
-		$data['berita'] = $this->db->order_by('id_berita','desc')->from('tb_berita')->join('tb_kategori','tb_kategori.id_kategori = tb_berita.id_kategori')->get()->result();
+		$data['berita'] = $this->db->order_by('id_berita','desc')->from('tb_berita')->join('tb_kategori','tb_kategori.id_kategori = tb_berita.id_kategori')->join('tb_pengguna','tb_pengguna.id_pengguna = tb_berita.id_user')->get()->result();
 		$this->load->view('backend/berita/index',$data);
 	}
 
@@ -26,7 +26,7 @@ class Berita extends CI_Controller {
         $config['max_size'] = '0';
         $config['upload_path'] = './uploads/berita/';
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload('foto')) {
+        if ($this->upload->do_upload('thumbnail')) {
             $foto = $this->upload->data('file_name');
         } else {
             $this->upload->display_errors();
@@ -42,7 +42,7 @@ class Berita extends CI_Controller {
             'slug'			=> $slug,
             'id_kategori'	=> $this->input->post('id_kategori'),
             'konten'		=> $this->input->post('konten'),
-            'foto'          => $foto,
+            'thumbnail'          => $foto,
             'waktu_buat'      => date('Y-m-d H:i:s')
         ];
         $this->db->insert('tb_berita',$data);
@@ -68,7 +68,7 @@ class Berita extends CI_Controller {
                 unlink(FCPATH . './uploads/berita/' . $fotolama);
             }
             $fotobaru = $this->upload->data('file_name');
-            $this->db->set('foto', $fotobaru);
+            $this->db->set('thumbnail', $fotobaru);
         } else {
             $this->upload->display_errors();
         }
@@ -145,8 +145,8 @@ class Berita extends CI_Controller {
 
 	public function komentar(){
 		$data['komentar'] = $this->db->from('tb_komentar')->join('tb_berita','tb_berita.id_berita = tb_komentar.id_berita')->get()->result();
-
-		$this->load->view('backend/berita/komentar');
+		$data['title'] 	= 'Data Komentar';
+		$this->load->view('backend/berita/komentar',$data);
 	}
 
 	public function store_komentar(){
@@ -155,7 +155,8 @@ class Berita extends CI_Controller {
 			'nama'	=> $this->input->post('nama'),
 			'email'	=> $this->input->post('email'),
 			'komentar' => $this->input->post('komentar'),
-			'id_berita' => $this->input->post('id_berita')
+			'id_berita' => $this->input->post('id_berita'),
+			'waktu_buat' => date('d-m-Y')
 		];
 		
 		$this->db->insert('tb_komentar',$data);

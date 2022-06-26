@@ -34,11 +34,11 @@ $this->load->view('santri/komponen/sidebar-santri');
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Kosutmisasi Sistem Web.</h3>
+                    <h3 class="card-title">Form Pendaftaran Santri.</h3><small>( Masukan semua data )</small>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url()?>santri/pendaftaran" method="POST">
+                    <form action="<?= base_url()?>santri/pendaftaran/<?php if ($santri > 0){ echo 'update'; }else { echo 'store'; } ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
@@ -46,12 +46,12 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="nama"
-								<?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['nama'] ?>"
+								<?php if($santri > 0) { ?>
+                                value="<?= $santri['nama_santri'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Nama Lengkap"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
                     <div class="form-group row">
@@ -61,12 +61,27 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="nama_panggilan"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['nama_panggilan'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['nama_panggilan'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Nama Panggilan"
 								<?php }?>
-                                id="">
+                                id="" >
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Nama Wali</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="nama_wali"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['nama_wali'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nama Wali"
+								<?php }?>
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -76,12 +91,12 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="tempat_lahir"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['tempat_lahir'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['tempat_lahir'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Tempat Lahir"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -91,11 +106,11 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="date"
                                 class="form-control"
                                 name="tanggal_lahir"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['tanggal_lahir'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['tanggal_lahir'] ?>"
 								<?php }else{?>
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -105,12 +120,12 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="cita_cita"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['cita_cita'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['cita_cita'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Cita Cita"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -120,29 +135,15 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="alamat_asal"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['alamat_asal'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['alamat'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Alamat Asal"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
-					<div class="form-group row">
-                        <label for="" class="col-sm-2 col-form-label">Alamat Sekarang</label>
-                        <div class="col-sm-10">
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="alamat_selakarang"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['alamat_sekarang'] ?>"
-								<?php }else{?>
-								placeholder="Masukan Alamat Sekarang"
-								<?php }?>
-                                id="">
-                        </div>
-                    </div>
+					
 					<div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
@@ -150,12 +151,12 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="email"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['email'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['email'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Alamat Email"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -165,12 +166,27 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="telpon"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['telpon'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['telpon'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Nomor Telpon/Whatsapp"
 								<?php }?>
-                                id="">
+                                id="" >
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Telpon Wali</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="telpon_wali"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['telpon_wali'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Nomor Telpon/Whatsapp Wali"
+								<?php }?>
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -180,12 +196,12 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="kampus"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['kampus'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['kampus'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Nama Kampus"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
 					<div class="form-group row">
@@ -195,14 +211,32 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="text"
                                 class="form-control"
                                 name="semester"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['semester'] ?>"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['semester'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Semester Sekarang"
 								<?php }?>
-                                id="">
+                                id="" >
                         </div>
                     </div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Prodi/Jurusan</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="prodi"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['prodi'] ?>"
+								<?php }else{?>
+								placeholder="Masukan Jurusan/Prodi Kuliah"
+								<?php }?>
+                                id="" >
+                        </div>
+                    </div>
+					
+                           
+                
 					<div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">Foto</label>
                         <div class="col-sm-10">
@@ -210,14 +244,27 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="file"
                                 class="form-control"
                                 name="foto"
-                                <?php if($pendaftaran > 0) { ?>
-                                value="<?= $pendaftaran['nama_panggilan'] ?>"
-								<?php }else{?>
-								placeholder="Masukan Nama Panggilan"
-								<?php }?>
                                 id="">
                         </div>
                     </div>
+					<input
+                                type="hidden"
+                                class="form-control"
+                                name="id"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['id_santri'] ?>"
+								<?php }else{?>
+								<?php }?>
+                                id="" >
+					<input
+                                type="hidden"
+                                class="form-control"
+                                name="foto_old"
+                                <?php if($santri > 0) { ?>
+                                value="<?= $santri['foto'] ?>"
+								<?php }else{?>
+								<?php }?>
+                                id="" >
 					<div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">Aksi</label>
                         <div class="col-sm-10">
@@ -225,7 +272,7 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 type="submit"
                                 class="btn btn-primary"
                                 name="simpan"
-                                <?php if($pendaftaran > 0) { ?>
+                                <?php if($santri > 0) { ?>
                                 value="Perbahrui"
 								<?php }else{?>
 								value="Simpan"

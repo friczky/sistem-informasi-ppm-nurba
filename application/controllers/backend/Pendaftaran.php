@@ -10,8 +10,9 @@ class Pendaftaran extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['title'] = 'Data Pendaftaran';
-		$data['pendaftar'] = $this->db->from('tb_santri')->join('tb_pendaftaran','tb_santri.id_pendaftar = tb_pendaftaran.id_pendaftar')->where('tb_pendaftaran.status_pendaftaran',0)->get()->result();
+		$data['title'] 		= 'Data Pendaftaran';
+		$data['pendaftar'] 	= $this->db->from('tb_santri')->join('tb_pendaftaran','tb_santri.id_pengguna = tb_pendaftaran.id_pengguna')->get()->result();
+		$data['berkas'] 	= $this->db->from('tb_berkas')->join('tb_santri','tb_berkas.id_user = tb_santri.id_pengguna')->get()->result();
 		$this->load->view('backend/pendaftaran/index',$data);
 	}
 
@@ -36,6 +37,20 @@ class Pendaftaran extends CI_Controller {
 			redirect(base_url('dashboard/pendaftaran/pengaturan'));
 		}
 		redirect(base_url('dashboard/pendaftaran/pengaturan'));
+	}
+
+	public function konfirmasi($id,$opsi){
+		if($opsi == 'terima'){
+			$data ['status_santri'] = 0;
+			$this->db->where('id_santri',$id)->update('tb_santri',$data);
+			$this->session->set_flashdata('sukses', 'Berhasil mengkonfirmasi pendaftaran');
+			redirect(base_url('dashboard/pendaftaran'));
+		} elseif($opsi == 'tolak'){
+			$data ['status_santri'] = 2;
+			$this->db->where('id_santri',$id)->update('tb_santri',$data);
+			$this->session->set_flashdata('sukses', 'Berhasil mengkonfirmasi pendaftaran');
+		}
+		redirect(base_url('dashboard/pendaftaran'));
 	}
 
 	public function berkas(){
@@ -65,11 +80,8 @@ class Pendaftaran extends CI_Controller {
         } else {
             $this->upload->display_errors();
         }
-        $data = [
-			'poster' => $poster,
-			'formulir' => $formulir,
-        ];
-        $this->db->where('id',1)->update('tb_pengaturan_pendaftaran',$data);
+
+        $this->db->where('id',1)->update('tb_pengaturan_pendaftaran');
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Pengaturan Pendaftaran !</div>');
         redirect(base_url('dashboard/pendaftaran/pengaturan'));
 	}

@@ -11,7 +11,7 @@ class Santri extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data Santri';
-		$data['santri'] = $this->db->from('tb_santri')->join('tb_pendaftaran','tb_santri.id_pendaftar = tb_pendaftaran.id_pendaftar')->where('tb_pendaftaran.status_pendaftaran',1)->get()->result(); 
+		$data['santri'] = $this->db->where('status_santri',0)->get('tb_santri')->result();
 		$this->load->view('backend/santri/index',$data);
 	}
 
@@ -146,8 +146,7 @@ class Santri extends CI_Controller {
 		}
 		
 	}
-
-
+	
 	public function hapus($id_santri){
 		$data = $this->db->where('id_santri',$id_santri)->get('tb_santri');
         foreach ($data->result() as $u){

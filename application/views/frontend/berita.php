@@ -28,7 +28,7 @@
                     <div class="col-xl-6">
                         <div class="blog-item mb-30">
                             <div class="post-thumb">
-                                <a href="<?= base_url('baca/').$b->slug?>"><img src="<?= base_url('uploads/berita/').$b->foto;?>" alt="" width="50px" class="img-fluid"></a>
+                                <a href="<?= base_url('baca/').$b->slug?>"><img src="<?= base_url('uploads/berita/').$b->thumbnail;?>" alt="" width="50px" class="img-fluid"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="post-meta">

@@ -2,7 +2,7 @@
 
 <section
     class="page-header"
-    style="background: url(<?= base_url('uploads/berita/').$baca['foto']?>);">
+    style="background: url(<?= base_url('uploads/berita/').$baca['thumbnail']?>);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-8">
@@ -31,7 +31,7 @@
                 <div class="post-single">
                     <div class="post-thumb">
                         <img
-                            src="<?= base_url('uploads/berita/').$baca['foto']?>"
+                            src="<?= base_url('uploads/berita/').$baca['thumbnail']?>"
                             alt=""
                             class="img-fluid">
                     </div>
@@ -108,13 +108,13 @@
 						<?php $komentar = $this->db->where('id_berita',$baca['id_berita'])->get('tb_komentar')->result(); foreach ($komentar as $komen) { ?>
                         <div class="comment-box">
                             <div class="comment-avatar">
-                                <img src="assets/images/blog/user.jpg" class="me-3" alt="...">
+                                <img src="<?= base_url()?>uploads/sistem/user.png" class="me-3" alt="...">
                             </div>
                             <div class="comment-info">
-                                <h5><?= $komentar->nama?></h5>
-                                <span><?= $komentar->waktu_buat?></span>
+                                <h5><?= $komen->nama?></h5>
+                                <span><?= $komen->waktu_buat?></span>
                                 <p>
-                                    <?= $komentar->komentar?>
+                                    <?= $komen->komentar?>
                                 </p>
                             </div>
                         </div>
@@ -126,27 +126,26 @@
                         <h3 class="titile">Tulis Komentar.
                         </h3>
                         <p>Emailmu tidak akan kami publish.*</p>
-                        <form action="#" class="comment_form">
+                        <form action="<?= base_url()?>backend/berita/store_komentar" method="post" class="comment_form">
                             <div class="row form-row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nama">
+                                        <input type="text" class="form-control" name="nama" placeholder="Nama">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email">
+                                        <input type="text" class="form-control" name="email" placeholder="Email">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <textarea
-                                            name="msg"
                                             id="msgt"
                                             cols="30"
                                             rows="6"
-                                            placeholder="Komentar"
+                                            placeholder="Komentar" name="komentar"
                                             class="form-control"></textarea>
                                     </div>
                                 </div>

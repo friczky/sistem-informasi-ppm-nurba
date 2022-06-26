@@ -12,6 +12,7 @@ class Home extends CI_Controller {
 		$data['ustadz']	= $this->db->order_by('id_ustadz','RANDOM')->get('tb_ustadz',3)->result();
 		$data['warna']= array('bg-1','bg-2','bg-3','bg-4','bg-5');
 		$data['kajian']	= $this->db->order_by('id_kajian','RANDOM')->get('tb_kajian',5)->result();
+		$data['quotes'] = $this->db->from('tb_quotes')->join('tb_pengguna','tb_pengguna.id_pengguna = tb_quotes.id_pengguna','')->order_by('id','RANDOM')->get()->result();
 		$this->load->view('frontend/index',$data);
 	}
 
@@ -33,8 +34,9 @@ class Home extends CI_Controller {
 	}
 
 	public function baca($slug)
-	{
-		$data['title']	= 'Home';
+	{	
+		$berita	= $this->db->get_where('tb_berita',['slug'=>$slug])->row_array();
+		$data['title']	= $berita['judul'] ;
 		$data['baca']	= $this->db->get_where('tb_berita',['slug'=>$slug])->row_array();
 		$data['berita']	= $this->db->order_by('id_berita','DESC')->get('tb_berita',3)->result();
 		$data['kategori']	= $this->db->get('tb_kategori')->result();
@@ -58,7 +60,7 @@ class Home extends CI_Controller {
 	public function santri()
 	{
 		$data['title']	= 'Santri';
-		$data['santri']	= $this->db->order_by('id_santri','DESC')->get('tb_santri')->result();
+		$data['santri']	= $this->db->order_by('nama_santri','DESC')->where('status_santri',0)->get('tb_santri')->result();
 		$this->load->view('frontend/santri',$data);
 	}
 

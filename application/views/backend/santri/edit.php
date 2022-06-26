@@ -58,7 +58,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                                     type="text"
                                     class="form-control"
                                     name="nama"
-                                    value="<?= $santri['nama']?>"
+                                    value="<?= $santri['nama_santri']?>"
                                     required="required">
                             </div>
                             <!-- /.form-group -->

@@ -44,9 +44,9 @@ class Berita extends CI_Controller {
             'slug'			=> $slug,
             'id_kategori'	=> $this->input->post('id_kategori'),
             'konten'		=> $this->input->post('konten'),
-            'foto'          => $foto,
+            'thumbnail'     => $foto,
 			'id_user'		=> $this->input->post('id_user'),
-            'waktu_buat'      => date('Y-m-d H:i:s')
+            'waktu_buat'    => date('Y-m-d H:i:s')
         ];
 		
         $this->db->insert('tb_berita',$data);
@@ -72,7 +72,7 @@ class Berita extends CI_Controller {
                 unlink(FCPATH . './uploads/berita/' . $fotolama);
             }
             $fotobaru = $this->upload->data('file_name');
-            $this->db->set('foto', $fotobaru);
+            $this->db->set('thumbnail', $fotobaru);
         } else {
             $this->upload->display_errors();
         }

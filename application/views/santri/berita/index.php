@@ -57,7 +57,7 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 <td><?= $no++?></td>
                                 <td><?= $b->judul?></td>
                                 <td><?= $b->kategori?></td>
-                                <td><img src="<?= base_url()?>uploads/berita/<?= $b->foto?>" width="50px" alt=""></td>
+                                <td><img src="<?= base_url()?>uploads/berita/<?= $b->thumbnail?>" width="50px" alt=""></td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#konten<?= $b->id_berita?>">Klik disini</a>
                                     <div class="modal fade" id="konten<?= $b->id_berita?>">

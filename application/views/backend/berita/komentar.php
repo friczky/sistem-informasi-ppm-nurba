@@ -21,7 +21,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                         <li class="breadcrumb-item">
                             <a href="#">Dashboard</a>
                         </li>
-                        <li class="breadcrumb-item active">Berita</li>
+                        <li class="breadcrumb-item active">Komentar</li>
                     </ol>
                 </div>
             </div>
@@ -44,7 +44,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Judul</th>
+                                <th>Judul Berita</th>
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Komentar</th>
@@ -60,11 +60,11 @@ $this->load->view('backend/komponen/sidebar-admin');
                                 <td><?= $b->email?></td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#komentar<?= $b->id_komentar?>">Klik disini</a>
-                                    <div class="modal fade" id="konten<?= $b->id_berita?>">
+                                    <div class="modal fade" id="komentar<?= $b->id_komentar?>">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Konten</h4>
+                                                    <h4 class="modal-title">Isi Komentar</h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>

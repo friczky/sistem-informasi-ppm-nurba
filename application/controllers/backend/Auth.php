@@ -40,8 +40,15 @@ class Auth extends CI_Controller {
     }
 
 	public function register(){
-		$this->load->view('auth/register');
+		$data = $this->db->get('tb_pengaturan_pendaftaran')->row_array();
+		if ($data['status'] == '1') {
+			$this->load->view('auth/register');
+		} else {
+			$this->session->set_flashdata('alert','<div class="alert alert-warning">Pendaftaran Belum Dibuka !</div>');
+			redirect(base_url('login'));
+		}
 	}
+		
 
 	public function store(){
 		$data = [

@@ -24,7 +24,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team-item mb-5">
                     <div class="team-img">
-                        <img src="<?= base_url()?>uploads/santri/<?= $s->foto?>" alt="" class="img-fluid">
+                        <img src="<?= base_url()?>uploads/santri/<?php if($s->foto == ''){echo 'default.png';}else { echo $s->foto ; }?>" alt="" class="img-fluid">
         
                         <ul class="team-socials list-inline">
                             <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="team-content">
                         <div class="team-info">
-                            <h4><?= $s->nama?></h4>
+                            <h4><?= $s->nama_santri?></h4>
                             <p><?= $s->kampus?></p>
                         </div>
         

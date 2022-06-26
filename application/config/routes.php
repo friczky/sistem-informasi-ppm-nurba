@@ -18,7 +18,7 @@ $route['dashboard']						= 'backend/dashboard';
 
 // login
 $route['login']							= 'backend/auth';
-$route['daftar']							= 'backend/auth/register';
+$route['daftar']						= 'backend/auth/register';
 $route['logout']						= 'backend/auth/logout';
 
 // berita

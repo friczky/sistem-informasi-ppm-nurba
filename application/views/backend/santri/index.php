@@ -36,13 +36,15 @@ $this->load->view('backend/komponen/sidebar-admin');
                 <div class="card-header">
                     <div class="col-sm-12 row">
 						<div class="col-sm-6"><h3 class="card-title">Semua Data Santri.</h3></div>
-						<div class="col-sm-6 text-right"><a href="" class="btn btn-primary"><i class="fa fa-upload"></i> &nbsp; Import Data</a> <a href="" class="btn btn-danger"><i class="fa fa-trash"></i> &nbsp; Hapus Data</a></div>
+						<div class="col-sm-6 text-right">
+						<a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus-circle"></i> Import Data (Excel)</a>
+				<a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModaldelete"><i class="fa fa-trash"></i> Reset Semua Data</a></div>
 					</div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <?= $this->session->flashdata('sukses')?>
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example2" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -62,7 +64,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                             <?php $no=1; foreach($santri as $s): ?>
                             <tr>
                                 <td><?= $no++?></td>
-                                <td><?= $s->nama?></td>
+                                <td><?= $s->nama_santri?></td>
                                 <td><?= $s->nama_wali?></td>
                                 <td><?= $s->tempat_lahir?></td>
                                 <td><?= $s->tanggal_lahir?></td>
@@ -128,6 +130,57 @@ $this->load->view('backend/komponen/sidebar-admin');
         </div>
     </div>
 </section>
+
+
+<!-- Modal Import -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Import Data Santri ( Excel )</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?= form_open_multipart('excel/import');?>
+			<div class="form-group">
+				<label for="exampleInputFile">File Excel</label>
+				<input type="file" class="form-control" id="exampleInputFile" name="excel">
+			</div>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary" >Import</button>
+		<? form_close();?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reset Data Santri</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+			<h3>Apakah ingin mereset semua data santri ?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+       <a href="<?= base_url()?>excel/reset" class="btn btn-danger">Ya</a>
+		
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php 
 

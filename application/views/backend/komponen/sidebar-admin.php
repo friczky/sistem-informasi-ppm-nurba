@@ -102,7 +102,7 @@
                         <p>
                             Man Santri
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right"><?= $this->db->count_all('tb_santri')?></span>
+                            <span class="badge badge-info right"><?= $this->db->where('status_santri',0)->count_all_results('tb_santri');?></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

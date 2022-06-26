@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="header-btn text-center text-lg-end">
-                           <a href="<?= base_url('login')?>" target="_blank"> <i class="fa fa-user-alt"></i> Login/Register</a>
+                           <a href="<?= base_url('login')?>" target="_blank"> <i class="fa fa-user-alt"></i> Masuk/Daftar</a>
                         </div>
                    </div>
                 </div>

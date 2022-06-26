@@ -103,14 +103,14 @@ $(function () {
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
-            "buttons": [
-                "copy",
-                "csv",
-                "excel",
-                "pdf",
-                "print",
-                "colvis"
-            ]
+            // "buttons": [
+            //     "copy",
+            //     "csv",
+            //     "excel",
+            //     "pdf",
+            //     "print",
+            //     "colvis"
+            // ]
         })
         .buttons()
         .container()
@@ -124,6 +124,7 @@ $(function () {
         "autoWidth": false,
         "responsive": true
     });
+	
 });
 </script>
 

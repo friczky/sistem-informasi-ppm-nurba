@@ -191,7 +191,7 @@
                 <div class="course-grid tooltip-style bg-white hover-shadow">
                     <div class="course-header">
                         <div class="course-thumb">
-                            <img src="<?= base_url()?>uploads/berita/<?= $b->foto?>" alt="" width="340px" height="223" class="img">
+                            <img src="<?= base_url()?>uploads/berita/<?= $b->thumbnail?>" alt="" width="340px" height="223" class="img">
                         </div>
                     </div>
 
@@ -351,105 +351,27 @@
         <div class="row align-items-center">
             <div class="col-lg-12 col-xl-12">
                 <div class="testimonials-slides owl-carousel owl-theme">
+				<?php foreach($quotes as $q){ ?>
                     <div class="testimonial-item">
                        <div class="testimonial-inner">
                            <div class="quote-icon"><i class="flaticon-left-quote"></i></div>
 
                             <div class="testimonial-text mb-30">
-                                Cras vel purus fringilla, lobortis libero ut Proin a velit convallis, fermentum orci in, rutrum diam. Duis elementum odio a pharetra commodo.
+                                <?= $q->quotes?>
                             </div>
 
                             <div class="client-info d-flex align-items-center">
                                 <div class="client-img">
-                                    <img src="<?= base_url()?>assets/frontend/images/clients/testimonial-avata-01.jpg" alt="" class="img-fluid">
+                                    <img src="<?= base_url()?>uploads/pengguna/<?= $q->foto?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="testimonial-author">
-                                    <h4>Cory Zamora</h4>
-                                    <span class="meta">Marketing Specialist</span>
+                                    <h4><?= $q->nama ?></h4>
+                                    <span class="meta">Mahasantri</span>
                                 </div>
                             </div>
                        </div>
                     </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-inner">
-                            <div class="quote-icon"><i class="flaticon-left-quote"></i></div>
-
-                            <div class="testimonial-text  mb-30">
-                                Cras vel purus fringilla, lobortis libero ut Proin a velit convallis, fermentum orci in, rutrum diam. Duis elementum odio a pharetra commodo.
-                            </div>
-
-                            <div class="client-info d-flex align-items-center">
-                                <div class="client-img">
-                                    <img src="<?= base_url()?>assets/frontend/images/clients/testimonial-avata-02.jpg" alt="" class="img-fluid">
-                                </div>
-                                <div class="testimonial-author">
-                                    <h4>Jackie Sanders</h4>
-                                    <span class="meta">Marketing Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-inner">
-                            <div class="quote-icon"><i class="flaticon-left-quote"></i></div>
-
-                            <div class="testimonial-text  mb-30">
-                                Cras vel purus fringilla, lobortis libero ut Proin a velit convallis, fermentum orci in, rutrum diam. Duis elementum odio a pharetra commodo.
-                            </div>
-
-                            <div class="client-info d-flex align-items-center">
-                                <div class="client-img">
-                                    <img src="<?= base_url()?>assets/frontend/images/clients/testimonial-avata-03.jpg" alt="" class="img-fluid">
-                                </div>
-                                <div class="testimonial-author">
-                                    <h4>Nikolas Brooten</h4>
-                                    <span class="meta">Sales Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-inner">
-                            <div class="quote-icon"><i class="flaticon-left-quote"></i></div>
-
-                            <div class="testimonial-text mb-30">
-                                Cras vel purus fringilla, lobortis libero ut Proin a velit convallis, fermentum orci in, rutrum diam. Duis elementum odio a pharetra commodo.
-                            </div>
-
-                            <div class="client-info d-flex align-items-center">
-                                <div class="client-img">
-                                    <img src="<?= base_url()?>assets/frontend/images/clients/testimonial-avata-04.jpg" alt="" class="img-fluid">
-                                </div>
-                                <div class="testimonial-author">
-                                    <h4>Terry Ambady</h4>
-                                    <span class="meta">Marketing Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-inner">
-                            <div class="quote-icon"><i class="flaticon-left-quote"></i></div>
-
-                            <div class="testimonial-text mb-30">
-                                Cras vel purus fringilla, lobortis libero ut Proin a velit convallis, fermentum orci in, rutrum diam. Duis elementum odio a pharetra commodo.
-                            </div>
-
-                            <div class="client-info d-flex align-items-center">
-                                <div class="client-img">
-                                    <img src="<?= base_url()?>assets/frontend/images/clients/testimonial-avata-03.jpg" alt="" class="img-fluid">
-                                </div>
-                                <div class="testimonial-author">
-                                    <h4>Nikolas Brooten</h4>
-                                    <span class="meta">Sales Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					<?php }?>
                 </div>
             </div>
         </div>
@@ -457,7 +379,7 @@
 </section>
 <!-- Testimonial section End -->
 <!-- CTA Sidebar start -->
-<section class="cta-5 mb--120 bg-gray">
+<section class="cta-5 mb--120 bg-gray" style="padding-bottom: 50px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-12">
@@ -472,7 +394,7 @@
                             <div class="cta-content ps-lg-4">
                                 <span class="subheading mb-10">Yakin tidak mau gabung?</span>
                                 <h2 class="mb-20"> Ayo Berkembang dan Bertumbuh berasma  di PPM NUR BAITURRAHMAN.</h2>
-                                <a href="#" class="btn btn-main rounded"> Ingin Gabung</a>
+                                <a href="<?= base_url()?>daftar" class="btn btn-main rounded"> Ingin Gabung</a>
                             </div>
                         </div>
                     </div>

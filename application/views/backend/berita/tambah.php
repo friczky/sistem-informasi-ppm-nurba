@@ -71,7 +71,7 @@ $this->load->view('backend/komponen/sidebar-admin');
 			<!-- /.col -->
 					<div class="form-group">
 						<label for="">Thumbnail</label>
-						<input type="file" class="form-control" name="foto" required>
+						<input type="file" class="form-control" name="thumbnail" required>
 					</div>
 
 					<div class="form-group">

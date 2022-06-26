@@ -71,8 +71,8 @@ $this->load->view('backend/komponen/sidebar-admin');
 			<!-- /.col -->
 					<div class="form-group">
 						<label for="">Thumbnail</label>
-						<input type="file" class="form-control" name="foto" >
-						<input type="hidden" name="foto_old" value="<?= $berita['foto']?>">
+						<input type="file" class="form-control" name="thumbnail" >
+						<input type="hidden" name="foto_old" value="<?= $berita['thumbnail']?>">
 					</div>
 
 					<div class="form-group">

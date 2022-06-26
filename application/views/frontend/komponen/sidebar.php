@@ -14,7 +14,7 @@
             <?php foreach($berita as $b) {?>
             <div class="single-latest-post">
                 <div class="widget-thumb">
-                    <a href="<?= base_url('baca/').$b->slug?>"><img src="<?= base_url('uploads/berita/').$b->foto?>" alt="" class="img-fluid"></a>
+                    <a href="<?= base_url('baca/').$b->slug?>"><img src="<?= base_url('uploads/berita/').$b->thumbnail?>" alt="" class="img-fluid"></a>
                 </div>
                 <div class="widget-content">
                     <h5>
