@@ -42,8 +42,8 @@ class Berita extends CI_Controller {
             'slug'			=> $slug,
             'id_kategori'	=> $this->input->post('id_kategori'),
             'konten'		=> $this->input->post('konten'),
-            'thumbnail'          => $foto,
-            'waktu_buat'      => date('Y-m-d H:i:s')
+            'thumbnail'     => $foto,
+            'waktu_buat'    => date('Y-m-d H:i:s')
         ];
         $this->db->insert('tb_berita',$data);
         $this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil menambahkan berita !</div>');
@@ -51,7 +51,7 @@ class Berita extends CI_Controller {
     }
 
 	public function edit($id_berita){
-		$data['title'] = 'Edit Berita';
+		$data['title'] = 'Edit Berita';	
 		$data['kategori'] = $this->db->get('tb_kategori')->result();
 		$data['berita'] = $this->db->where('id_berita',$id_berita)->from('tb_berita')->join('tb_kategori','tb_kategori.id_kategori = tb_berita.id_kategori')->get()->row_array();
 		$this->load->view('backend/berita/edit',$data);

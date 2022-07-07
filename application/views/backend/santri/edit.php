@@ -48,7 +48,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <?= form_open_multipart('backend/santri/update')?>
+                <?= form_open_multipart("backend/santri/update/".$santri['id_pengguna'])?>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -58,7 +58,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                                     type="text"
                                     class="form-control"
                                     name="nama"
-                                    value="<?= $santri['nama_santri']?>"
+                                    value="<?= $santri['nama']?>"
                                     required="required">
                             </div>
                             <!-- /.form-group -->
@@ -127,12 +127,14 @@ $this->load->view('backend/komponen/sidebar-admin');
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Kampus</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name="kampus"
-                                    value="<?= $santri['kampus']?>"
-                                    required="required">
+                                <select name="id_kampus" class="form-control" id="">
+								<option value="<?php if($santri['id_kampus'] == null  ){  }else { echo $santri['id_kampus'] ; }?>">
+								<?php if($santri['id_kampus'] == null){ echo "Pilih Kampus"; }else { echo $santri['nama_kampus'] ;}?>
+							    </option>
+								<?php foreach($kampus as $kampus){ ?>
+									<option value="<?= $kampus->id_kampus?>"><?= $kampus->nama_kampus?></option>
+								<?php }?>
+							</select>
                             </div>
                             <!-- /.form-group -->
                         </div>

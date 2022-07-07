@@ -6,9 +6,10 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$user = $this->db->where('id_pengguna',$this->session->userdata('id'))->get('tb_santri')->row_array();
-		$artikel = $this->db->where('id_user',$this->session->userdata('id'))->count_all_results('tb_berita');
+		$id = $this->session->userdata('id');
+		$data['user'] = $this->db->from('tb_pengguna')->join('tb_santri','tb_santri.id_pengguna = tb_pengguna.id_pengguna')->where('tb_pengguna.id_pengguna',$id)->get()->row_array();
+		$data['artikel'] = $this->db->where('id_user',$this->session->userdata('id'))->count_all_results('tb_berita');
 		$data['title'] = 'Home' ;
-		$this->load->view('santri/v_dashboard',['user'=>$user,'title' => $data['title'],'artikel' => $artikel]);
+		$this->load->view('santri/v_dashboard',$data);
 	}
 }

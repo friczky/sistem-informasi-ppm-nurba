@@ -1,75 +1,50 @@
+<?php $this->load->view('frontend/komponen/header'); ?>
+<?php $this->load->view('frontend/komponen/navbar'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masuk</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('assets/backend/')?>plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="<?= base_url('assets/backend/')?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('assets/backend/')?>dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?= base_url('login/')?>"><b>LOGIN</b> PPM Nurba</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Masuk untuk mengakses akun anda.</p>
-			<?= $this->session->flashdata('alert'); ?>
-
-      <form action="<?= base_url('backend/auth/login')?>" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="username" placeholder="Username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+<section class="page-wrapper woocommerce single">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div class="woocommerce-notices-wrapper"></div>
+                <div class="login-form">
+                    <div class="form-header">
+                        <h2 class="font-weight-bold mb-3">Masuk</h2>
+												<?= $this->session->flashdata('alert'); ?>
+                        <p class="woocommerce-register">
+                            Belum Jadi Santri ? <a href="<?= base_url()?>daftar" class="text-decoration-underline">Daftar Sekarang !</a>
+                        </p>
+                    </div>
+                    <form class="woocommerce-form woocommerce-form-login login" action="<?= base_url('backend/auth/login')?>" method="post">
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">Username&nbsp;<span class="required">*</span></label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="username" id="username" autocomplete="username" value="" placeholder="Masukan Username">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="password">Password&nbsp;<span class="required">*</span></label>
+                            <input class="woocommerce-Input woocommerce-Input--text input-text form-control" type="password" name="password" id="password" autocomplete="current-password" placeholder="Masukan Password">
+                        </p>
+                       
+                       <div class="d-flex align-items-center justify-content-between py-2">
+                            <p class="form-row">
+                                <label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
+                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever"> <span>Remember me</span>
+                                </label>
+                            </p>
+    
+                            <p class="woocommerce-LostPassword lost_password">
+                                <a href="<?= base_url('backend/auth/lupa_password')?>">Lupa Password ?</a>
+                            </p>
+                       </div>
+    
+                       <p class="form-row">
+                            <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="a414dce984"><input type="hidden" name="_wp_http_referer" value="/my-account/">
+                            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">Masuk</button>
+                        </p>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!-- /.col -->
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-      <!-- <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p> -->
-      <p class="mb-0">
-		  <br>
-        <a href="<?= base_url()?>daftar" class="text-center">Daftar Menjadi Santri</a>
-      </p>
     </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
-<script src="<?= base_url('assets/backend/')?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url('assets/backend/')?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url('assets/backend/')?>dist/js/adminlte.min.js"></script>
-</body>
-</html>
+</section>
+<!--shop category end-->
+<?php $this->load->view('frontend/komponen/footer'); ?>

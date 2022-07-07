@@ -47,7 +47,7 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 class="form-control"
                                 name="nama"
 								<?php if($santri > 0) { ?>
-                                value="<?= $santri['nama_santri'] ?>"
+                                value="<?= $santri['nama'] ?>"
 								<?php }else{?>
 								placeholder="Masukan Nama Lengkap"
 								<?php }?>
@@ -192,16 +192,14 @@ $this->load->view('santri/komponen/sidebar-santri');
 					<div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">Kampus</label>
                         <div class="col-sm-10">
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="kampus"
-                                <?php if($santri > 0) { ?>
-                                value="<?= $santri['kampus'] ?>"
-								<?php }else{?>
-								placeholder="Masukan Nama Kampus"
+                            <select name="id_kampus" class="form-control" id="">
+								<option value="<?php if($kampus1 < 1 ){ }else {echo $kampus1['id_kampus'] ;}?>">
+								<?php if($kampus1 < 1){ echo "Pilih Kampus"; }else {echo $kampus1['nama_kampus'] ;}?>
+							</option>
+								<?php foreach($kampus as $kampus){ ?>
+									<option value="<?= $kampus->id_kampus?>"><?= $kampus->nama_kampus?></option>
 								<?php }?>
-                                id="" >
+							</select>
                         </div>
                     </div>
 					<div class="form-group row">
@@ -213,9 +211,8 @@ $this->load->view('santri/komponen/sidebar-santri');
                                 name="semester"
                                 <?php if($santri > 0) { ?>
                                 value="<?= $santri['semester'] ?>"
-								<?php }else{?>
-								placeholder="Masukan Semester Sekarang"
 								<?php }?>
+								placeholder="Masukan Semester Sekarang"
                                 id="" >
                         </div>
                     </div>

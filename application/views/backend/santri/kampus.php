@@ -79,7 +79,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                   <label>Data Kategori</label>
                   <table id="example1" class="table table-bordered table-striped">
 					  <thead>
-					  <th>No.</th>
+					  <th>ID Kampus</th>
 					  <th>Nama Kampus</th>
 					  <th>Logo</th>
 					  <th>Aksi</th>
@@ -87,7 +87,7 @@ $this->load->view('backend/komponen/sidebar-admin');
 						<?php $no =1 ; foreach ($kampus as $key => $k) { ?>
 					  <tr>
 						<form action="<?= base_url()?>backend/santri/kampus" method="post">
-						  <td><?= $no++?></td>
+						  <td align="center"><?= $k->id_kampus?></td>
 						  <td><?= $k->nama_kampus?></td>
 						  <td><img src="<?= base_url()?>uploads/kampus/<?= $k->logo_kampus?>" width="50px" alt=""></td>
 						  <td>

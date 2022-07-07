@@ -1,55 +1,3 @@
-<!-- modal hapus user -->
-<?php $no=1; foreach ($berkas as $b): ?>
-<div
-    class="modal fade"
-    id="berkas<?= $b->id_pengguna?>"
-    style="display: none;"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-default">
-            <div class="modal-header">
-                <h4 class="modal-title">Hapus Pendaftar :
-                    <?= $b->nama?></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table class="table" border="1">
-                    <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Formulir Pendaftaran</td>
-                            <td>
-                                <a href="<?= base_url()?>uploads/pendaftar/<?= $b->formulir?> ">
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </i>
-                                Download</a>
-                        	</td>
-                    	</tr>
-						<tr>
-                            <td>1.</td>
-                            <td>Surat Izin Orang Tua</td>
-                            <td>
-                                <a href="<?= base_url()?>uploads/pendaftar/<?= $b->surat_izin?> ">
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </i>
-                                Download</a>
-                        	</td>
-                    	</tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="modal-footer right">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
-</div>
-<?php endforeach;?>
-
 <!-- modal berkas pendaftaran -->
 <?php $no=1; foreach ($berkas as $b): ?>
 <div
@@ -61,7 +9,7 @@
         <div class="modal-content bg-default">
             <div class="modal-header">
                 <h4 class="modal-title">Berkas Pendaftar :
-                    <?= $b->nama?></h4>
+                    <?= $b->nama_santri?></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -106,14 +54,14 @@
 <?php $no=1; foreach ($pendaftar as $p): ?>
 <div
 class="modal fade"
-id="data<?= $p->id_pengguna ?>"
+id="data<?= $p->id_pendaftar?>"
 style="display: none;"
 aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content bg-default">
         <div class="modal-header">
             <h4 class="modal-title">Data Lengkap :
-                <?= $p->nama?></h4>
+                <?= $p->nama_santri?></h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
@@ -124,7 +72,7 @@ aria-hidden="true">
                 <tr>
                     <td>Nama</td>
                     <td>:</td>
-                    <td><?= $p->nama?></td>
+                    <td><?= $p->nama_santri?></td>
                 </tr>
                 <tr>
                     <td>Nama Panggilan</td>

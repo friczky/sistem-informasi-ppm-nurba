@@ -9,7 +9,7 @@
             <h1>Jadwal Kajian</h1>
             <ul class="header-bradcrumb justify-content-center">
               <li><a href="index.html">Home</a></li>
-              <li class="active" aria-current="page">Courses</li>
+              <li class="active" aria-current="page">Kajian</li>
             </ul>
           </div>
         </div>

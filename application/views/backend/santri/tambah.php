@@ -126,12 +126,14 @@ $this->load->view('backend/komponen/sidebar-admin');
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Kampus</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name="kampus"
-                                    placeholder="Masukan Asal Kampus"
-                                    required="required">
+                                <select name="id_kampus" class="form-control" id="">
+								<option value="<?php if($kampus1 < 1 ){ }else {echo $kampus1['id_kampus'] ;}?>">
+								<?php if($kampus1 < 1){ echo "Pilih Kampus"; }else {echo $kampus1['nama_kampus'] ;}?>
+							    </option>
+								<?php foreach($kampus as $kampus){ ?>
+									<option value="<?= $kampus->id_kampus?>"><?= $kampus->nama_kampus?></option>
+								<?php }?>
+							</select>
                             </div>
                             <!-- /.form-group -->
                         </div>

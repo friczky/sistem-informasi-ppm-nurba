@@ -1,92 +1,71 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daftar PPM NUR BAITURRAHMAN</title>
+<?php $this->load->view('frontend/komponen/header'); ?>
+<?php $this->load->view('frontend/komponen/navbar'); ?>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('assets/backend/')?>plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="<?= base_url('assets/backend/')?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('assets/backend/')?>dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?= base_url('login/')?>"><b>Daftar</b> PPM Nurba</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Mendaftar Sebagai Santri.</p>
-			<?= $this->session->flashdata('alert'); ?>
+<section class="woocommerce single page-wrapper">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-xl-7">
+                
+                <div class="signup-form">
+                    <div class="form-header">
+                        <h2 class="font-weight-bold mb-3">Mendaftar</h2>
+                        <?= $this->session->flashdata('alert'); ?>
+                        <p class="woocommerce-register">
+                           	Sudah Punya Akun? <a href="<?= base_url('login')?>" class="text-decoration-underline">Masuk</a>
+                        </p>
+                    </div>
 
-      <form action="<?= base_url('backend/auth/store')?>" method="post">
-				<div class="input-group mb-3">
-          <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-				<div class="input-group mb-3">
-          <input type="email" class="form-control" name="mail" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="uname" placeholder="User Name">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+                    <form class="woocommerce-form woocommerce-form-login login" action="<?= base_url('backend/auth/store')?>" method="post">
 
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="pwd" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row text-center">
-          <!-- /.col -->
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Nama Lengkap&nbsp;<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="namaewa" placeholder="Masukan Nama Lengkap">
+                                </p>
+                            </div>
+                           
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>User Name&nbsp;<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="uname"  value="" placeholder="Masukan Username">
+                                </p>
+                            </div>
 
-      <!-- <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p> -->
-      <p class="mb-0">
-		  <br>
-        <a href="<?= base_url()?>login" class="text-center">Masuk</a>
-      </p>
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Email&nbsp;<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="mael" value="" placeholder="Masukan Email">
+                                </p>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Password&nbsp;<span class="required">*</span></label>
+                                    <input type="password" class="form-control" name="psswd" value="" placeholder="Masukan Password">
+                                </p>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-center justify-content-between py-2">
+	
+                                    <p class="woocommerce-LostPassword lost_password">
+                                        <a href="<?= base_url('backend/auth/lupa_password')?>">Lupa password?</a>
+                                    </p>
+                               </div>
+                            </div>
+                        </div>
+                      
+                        <p class="woocommerce-FormRow form-row">
+                            <button type="submit" class="woocommerce-button button" name="daftar">Daftar</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
-<script src="<?= base_url('assets/backend/')?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url('assets/backend/')?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url('assets/backend/')?>dist/js/adminlte.min.js"></script>
-</body>
-</html>
+</section>
+<!--shop register end-->
+<!--shop category end-->
+<?php $this->load->view('frontend/komponen/footer'); ?>

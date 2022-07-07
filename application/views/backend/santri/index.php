@@ -50,13 +50,9 @@ $this->load->view('backend/komponen/sidebar-admin');
                                 <th>No.</th>
                                 <th>Nama</th>
                                 <th>Nama Wali</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
-                                <th>No Hp</th>
-                                <th>No Hp Wali</th>
                                 <th>Kampus</th>
                                 <th>Angkatan</th>
-                                <th>Foto</th>
+                                <th>Data Lengkap</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -64,35 +60,22 @@ $this->load->view('backend/komponen/sidebar-admin');
                             <?php $no=1; foreach($santri as $s): ?>
                             <tr>
                                 <td><?= $no++?></td>
-                                <td><?= $s->nama_santri?></td>
+                                <td><?= $s->nama?></td>
                                 <td><?= $s->nama_wali?></td>
-                                <td><?= $s->tempat_lahir?></td>
-                                <td><?= $s->tanggal_lahir?></td>
-                                <td><?= $s->telpon?></td>
-                                <td><?= $s->telpon_wali?></td>
                                 <td><?= $s->kampus?></td>
                                 <td><?= $s->angkatan?></td>
-                                <td><img src="<?= base_url()?>uploads/santri/<?= $s->foto?>" width="50px" alt=""></td>
+                                <td><a href="" class="badge badge-primary">Klik Disni</a></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-flat">Opsi</button>
-                                    <button
-                                        type="button"
-                                        class="btn btn-primary btn-flat dropdown-toggle dropdown-icon"
-                                        data-toggle="dropdown"></button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a
-                                            class="dropdown-item"
+											<a
                                             href="<?= base_url()?>dashboard/santri/edit/<?= $s->id_santri?>">
                                             <i class="fa fa-edit" aria-hidden="true"></i>
                                             Edit</a>
                                         <a
-                                            class="dropdown-item"
                                             href="#"
                                             data-toggle="modal"
                                             data-target="#hapus<?= $s->id_santri?>">
                                             <i class="fas fa-trash"></i>
                                             Hapus</a>
-                                    </div>
 
                                 </td>
                             </tr>

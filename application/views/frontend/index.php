@@ -378,6 +378,10 @@
     </div>
 </section>
 <!-- Testimonial section End -->
+
+<section class="section-padding bg-gray">
+			<?php include 'komponen/carousell-logo.php'?>
+</section>
 <!-- CTA Sidebar start -->
 <section class="cta-5 mb--120 bg-gray" style="padding-bottom: 50px;">
     <div class="container">

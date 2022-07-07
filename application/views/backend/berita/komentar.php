@@ -55,7 +55,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                             <?php $no=1; foreach($komentar as $b){?>
                             <tr>
                                 <td><?= $no++?></td>
-                                <td><?= $b->judul?></td>
+                                <td><a href="<?= base_url('baca/').$b->slug?>" target="blank"><?= $b->judul?></a></td>
                                 <td><?= $b->nama?></td>
                                 <td><?= $b->email?></td>
                                 <td>
@@ -64,7 +64,7 @@ $this->load->view('backend/komponen/sidebar-admin');
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Isi Komentar</h4>
+                                                    <h4 class="modal-title">Isi Komentar : <?= $b->nama?> </h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>

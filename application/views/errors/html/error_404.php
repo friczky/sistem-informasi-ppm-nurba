@@ -56,6 +56,8 @@ p {
 </style>
 </head>
 <body>
+<?php include '../../frontend/komponen/header.php'; ?>
+<?php include '../../frontend/komponen/navbar.php'; ?>
 	<div id="container">
 		<h1><?php echo $heading; ?></h1>
 		<?php echo $message; ?>

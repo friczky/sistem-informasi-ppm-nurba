@@ -56,20 +56,20 @@ $this->load->view('backend/komponen/sidebar-admin');
 							<?php $no=1; foreach ($pendaftar as $p): ?>
                             <tr>
                                 <td><?= $no++?></td>
-                                <td><?= $p->nama_santri?></td>
+                                <td><?= $p->nama?></td>
                                 <td><?= $p->telpon?></td>
                                 <td><?= $p->kampus?> </td>
                                 <td><img src="<?= base_url()?>uploads/santri/<?= $p->foto?>" width="50px" alt=""> </td>
                                 <td>
-                                    <a href="#" class="badge badge-info" data-toggle="modal" data-target="#data<?= $p->id_pendaftar?>">Klik Disini</a>
+                                    <a href="#data<?= $p->id_pengguna ?>" class="badge badge-info" data-toggle="modal" data-target="#data<?= $p->id_pengguna ?>">Klik Disini</a>
                                 </td>
                                 <td>
-                                    <a href="#" class="badge badge-info" data-toggle="modal" data-target="#berkas<?= $p->id_pengguna ?>">Klik Disini</a>
+                                    <a href="#berkas<?= $p->id_pengguna ?>" class="badge badge-primary" data-toggle="modal" data-target="#berkas<?= $p->id_pengguna ?>">Klik Disini</a>
                                 </td>
 								<td>
 									<?php if($p->status_santri == '0'){ ?>
 										<div  class="badge badge-success">Lulus</div>
-									<?php }elseif($p->status_santri =='1'){ ?>
+									<?php }elseif($p->status_santri == '1'){ ?>
 										<div class="badge badge-info">Belum Dikonfirmasi</div>
 									<?php }else{?>
 										<div class="badge badge-warning">Ditolak</div>

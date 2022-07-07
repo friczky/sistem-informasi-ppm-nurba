@@ -13,7 +13,7 @@ $this->load->view('santri/komponen/sidebar-santri');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Selamat Datang <b><?= $user['nama_santri']?></b></h1>
+            <h1 class="m-0">Selamat Datang <b><?= $user['nama']?></b></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -41,7 +41,7 @@ $this->load->view('santri/komponen/sidebar-santri');
                                     alt="User profile picture">
                             </div>
 
-                            <h3 class="profile-username text-center"><?= $user['nama_santri']?></h3>
+                            <h3 class="profile-username text-center"><?= $user['nama']?></h3>
 
                             <p class="text-muted text-center">Administrator</p>
 
@@ -71,7 +71,7 @@ $this->load->view('santri/komponen/sidebar-santri');
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                                             <div class="col-sm-10">
-                                                <b><?= $user['nama_santri']?></b>
+                                                <b><?= $user['nama']?></b>
                                             </div>
                                         </div>
                                         <div class="form-group row">

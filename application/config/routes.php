@@ -75,5 +75,5 @@ $route['dashboard/sistem/kontak']			= 'backend/sistem/kontak';
 
 // DLL
 $route['sitemap\.xml']			= 'sitemap';
-$route['404_override'] 			= '';
+$route['404_override'] 			= 'my404';
 $route['translate_uri_dashes'] 	= FALSE;

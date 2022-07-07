@@ -11,12 +11,14 @@ class Santri extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data Santri';
-		$data['santri'] = $this->db->where('status_santri',0)->get('tb_santri')->result();
+		$data['santri'] = $this->db->from('tb_santri')->join('tb_pengguna','tb_santri.id_pengguna = tb_pengguna.id_pengguna')->where('status_santri',0)->get()->result();
 		$this->load->view('backend/santri/index',$data);
 	}
 
 	public function tambah(){
 		$data['title'] = 'Tambah Santri';
+		$data['kampus']	= $this->db->get('tb_kampus')->result();	
+		$data['kampus1']= $this->db->from('tb_santri')->join('tb_kampus','tb_kampus.id_kampus = tb_santri.id_kampus')->where('tb_santri.id_pengguna',$id)->get()->row_array();
 		$this->load->view('backend/santri/tambah',$data);
 	}
 
@@ -48,13 +50,15 @@ class Santri extends CI_Controller {
         redirect(base_url('dashboard/santri'));
     }
 
-	public function edit($id_santri){
+	public function edit($id){
 		$data['title'] = 'Edit Santri';
-		$data['santri'] = $this->db->where('id_santri',$id_santri)->get('tb_santri')->row_array();
+		$data['kampus']	= $this->db->get('tb_kampus')->result();	
+		$data['kampus1']= $this->db->from('tb_santri')->join('tb_kampus','tb_kampus.id_kampus = tb_santri.id_kampus')->where('tb_santri.id_pengguna',$id)->get()->row_array();
+		$data['santri'] = $this->db->from('tb_santri')->join('tb_pengguna','tb_santri.id_pengguna = tb_pengguna.id_pengguna')->join('tb_kampus','tb_kampus.id_kampus = tb_santri.id_kampus')->where('tb_santri.id_santri',$id)->get()->row_array();
 		$this->load->view('backend/santri/edit',$data);
 	}
 
-	public function update(){
+	public function update($id){
         $config['allowed_types'] = 'jpg|png|gif';
         $config['max_size'] = '0';
         $config['upload_path'] = './uploads/santri/';
@@ -69,18 +73,23 @@ class Santri extends CI_Controller {
         } else {
             $this->upload->display_errors();
         }
+		
         $data = [
-			'nama_santri'	=> $this->input->post('nama'),
 			'nama_wali'		=> $this->input->post('nama_wali'),
 			'telpon_wali'	=> $this->input->post('telpon_wali'),
             'telpon'		=> $this->input->post('telpon'),
             'tempat_lahir'	=> $this->input->post('tempat_lahir'),
             'tanggal_lahir'	=> $this->input->post('tanggal_lahir'),
-			'id_kampus'		=> $this->input->post('kampus'),
+			'id_kampus'		=> $this->input->post('id_kampus'),
 			'angkatan'		=> $this->input->post('angkatan'),
             'waktu_update'	=> date('Y-m-d H:i:s')
         ];
-        $this->db->update('tb_santri',$data);
+
+		$data_pengguna = [
+			'nama'	=> $this->input->post('nama'),
+		];
+        $this->db->where('id_pengguna',$id)->update('tb_santri',$data);
+		$this->db->where('id_pengguna',$id)->update('tb_pengguna',$data_pengguna);
         $this->session->set_flashdata('sukses', '<div class="alert alert-info">Berhasil memperbahrui Santri !</div>');
         redirect(base_url('dashboard/santri'));
     }

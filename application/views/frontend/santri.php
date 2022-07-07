@@ -34,8 +34,8 @@
                     </div>
                     <div class="team-content">
                         <div class="team-info">
-                            <h4><?= $s->nama_santri?></h4>
-                            <p><?= $s->kampus?></p>
+                            <h4><?= $s->nama?></h4>
+                            <p><?= $s->nama_kampus?></p>
                         </div>
         
                         <div class="course-meta">

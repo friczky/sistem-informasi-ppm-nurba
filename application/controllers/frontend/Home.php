@@ -11,7 +11,9 @@ class Home extends CI_Controller {
 		$data['kategori']	= $this->db->get('tb_kategori')->result();
 		$data['ustadz']	= $this->db->order_by('id_ustadz','RANDOM')->get('tb_ustadz',3)->result();
 		$data['warna']= array('bg-1','bg-2','bg-3','bg-4','bg-5');
-		$data['kajian']	= $this->db->order_by('id_kajian','RANDOM')->get('tb_kajian',5)->result();
+		$data['kampus'] = $this->db->get('tb_kampus')->result();
+		$data['kampus1'] = $this->db->get('tb_kampus')->result();
+		$data['kajian']	= $this->db->order_by('id_kajian','RANDOM')->get('tb_kajian',6)->result();
 		$data['quotes'] = $this->db->from('tb_quotes')->join('tb_pengguna','tb_pengguna.id_pengguna = tb_quotes.id_pengguna','')->order_by('id','RANDOM')->get()->result();
 		$this->load->view('frontend/index',$data);
 	}
@@ -60,7 +62,7 @@ class Home extends CI_Controller {
 	public function santri()
 	{
 		$data['title']	= 'Santri';
-		$data['santri']	= $this->db->order_by('nama_santri','DESC')->where('status_santri',0)->get('tb_santri')->result();
+		$data['santri']	= $this->db->from('tb_santri')->join('tb_pengguna','tb_pengguna.id_pengguna = tb_santri.id_pengguna')->join('tb_kampus','tb_kampus.id_kampus = tb_santri.id_kampus' )->order_by('tb_pengguna.nama','DESC')->get()->result();
 		$this->load->view('frontend/santri',$data);
 	}
 

@@ -11,10 +11,11 @@ class Pendaftaran extends CI_Controller {
 
 	public function index()
 	{
-		$id_pengguna = $this->session->userdata('id');
-		
-		$data['title'] 			= 'Pendaftaran Santri Baru';
-		$data['santri']			= $this->db->where('id_pengguna',$id_pengguna)->get('tb_santri')->row_array();
+		$id = $this->session->userdata('id');
+		$data['title'] 	= 'Pendaftaran Santri Baru';
+		$data['kampus']	= $this->db->get('tb_kampus')->result();	
+		$data['kampus1']= $this->db->from('tb_santri')->join('tb_kampus','tb_kampus.id_kampus = tb_santri.id_kampus')->where('tb_santri.id_pengguna',$id)->get()->row_array();
+		$data['santri']	= $this->db->from('tb_pengguna')->join('tb_santri','tb_santri.id_pengguna = tb_pengguna.id_pengguna')->where('tb_pengguna.id_pengguna',$id)->get()->row_array();
 		$this->load->view('santri/pendaftaran/index',$data);
 	}
 
@@ -66,50 +67,6 @@ class Pendaftaran extends CI_Controller {
 		$this->load->view('santri/berita/tambah',$data);
 	}
 
-	public function store(){
-        $config['allowed_types'] = 'jpg|png|gif';
-        $config['max_size'] = '0';
-        $config['upload_path'] = './uploads/santri/';
-        $this->load->library('upload', $config);
-        if ($this->upload->do_upload('foto')) {
-            $foto = $this->upload->data('file_name');
-        } else {
-            // $this->upload->display_errors();
-        }
-
-		$data_pendaftar = [
-			'id_pengguna'	=> $this->session->userdata('id'),
-		];
-
-		$berkas = [
-			'id_user'	=> $this->session->userdata('id'),
-		];
-
-        $data = [
-			'id_pengguna' 	=> $this->session->userdata('id'),
-            'nama_santri'	=> $this->input->post('nama'),
-			'nama_panggilan'=> $this->input->post('nama_panggilan'),
-			'nama_wali'		=> $this->input->post('nama_wali'),
-			'tempat_lahir'	=> $this->input->post('tempat_lahir'),
-			'tanggal_lahir'	=> $this->input->post('tanggal_lahir'),
-			'cita_cita'		=> $this->input->post('cita_cita'),
-			'alamat'  		=> $this->input->post('alamat_asal'),
-			'email'			=> $this->input->post('email'),
-			'telpon'		=> $this->input->post('telpon'),
-			'telpon_wali'	=> $this->input->post('telpon_wali'),
-			'kampus'		=> $this->input->post('kampus'),
-			'semester'		=> $this->input->post('semester'),
-			'prodi'			=> $this->input->post('prodi'),
-			'status_santri'	=> 1 ,
-			'foto'			=> $foto,
-        ];
-
-		$this->db->insert('tb_berkas',$berkas);
-		$this->db->insert('tb_pendaftaran',$data_pendaftar);
-        $this->db->insert('tb_santri',$data);
-        $this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil Memperbahrui Form Pendaftaran Santri !</div>');
-        redirect(base_url('santri/pendaftaran'));
-    }
 
 	public function update(){
 		$config['allowed_types'] = 'jpg|png|gif';
@@ -127,10 +84,10 @@ class Pendaftaran extends CI_Controller {
             $this->upload->display_errors();
         }
 
-		$id = $this->input->post('id');
+		$id = $this->session->userdata('id');
 
         $data = [
-            'nama_santri'	=> $this->input->post('nama'),
+            
 			'nama_panggilan'=> $this->input->post('nama_panggilan'),
 			'nama_wali'		=> $this->input->post('nama_wali'),
 			'tempat_lahir'	=> $this->input->post('tempat_lahir'),
@@ -140,13 +97,18 @@ class Pendaftaran extends CI_Controller {
 			'email'			=> $this->input->post('email'),
 			'telpon'		=> $this->input->post('telpon'),
 			'telpon_wali'	=> $this->input->post('telpon_wali'),
-			'kampus'		=> $this->input->post('kampus'),
+			'id_kampus'		=> $this->input->post('id_kampus'),
 			'semester'		=> $this->input->post('semester'),
 			'prodi'			=> $this->input->post('prodi'),
 			
         ];
 
-        $this->db->where('id_santri',$id)->update('tb_santri',$data);
+		$data_pengguna = [
+			'nama'	=> $this->input->post('nama')
+		];
+
+		$this->db->where('id_pengguna',$id)->update('tb_santri',$data);
+        $this->db->where('id_pengguna',$id)->update('tb_pengguna',$data_pengguna);
         $this->session->set_flashdata('sukses', '<div class="alert alert-success">Berhasil Memperbahrui Form Pendaftaran Santri !</div>');
         redirect(base_url('santri/pendaftaran'));
     }
